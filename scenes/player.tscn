@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cj6hyidnacgpm"]
+
+[ext_resource type="Texture2D" uid="uid://dn4hrh3kfixa4" path="res://assets/stickman.png" id="1_l65pa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tr70d"]
+size = Vector2(148, 214)
+
+[node name="player" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_l65pa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tr70d")
