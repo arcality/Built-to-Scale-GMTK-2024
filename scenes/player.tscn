@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dol4ikt2xc18v"]
+[gd_scene load_steps=9 format=3 uid="uid://dol4ikt2xc18v"]
 
 [ext_resource type="Texture2D" uid="uid://csjndqq7tdjkm" path="res://icon.svg" id="1_adi12"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_vscu2"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scenes/state-machine/idle.gd" id="4_oixml"]
 [ext_resource type="Script" path="res://scenes/state-machine/running.gd" id="5_4wmna"]
 [ext_resource type="Script" path="res://scenes/jumping.gd" id="6_4grwf"]
+[ext_resource type="Script" path="res://scenes/falling.gd" id="7_2pg8j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bn55i"]
 size = Vector2(128, 128)
@@ -31,3 +32,6 @@ script = ExtResource("5_4wmna")
 
 [node name="Jumping" type="Node" parent="FiniteStateMachine"]
 script = ExtResource("6_4grwf")
+
+[node name="Falling" type="Node" parent="FiniteStateMachine"]
+script = ExtResource("7_2pg8j")

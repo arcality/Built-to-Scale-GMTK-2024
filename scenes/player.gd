@@ -3,7 +3,8 @@ class_name Player
 
 var gravity = 2000.0
 var speed = 10000.0
-var active_jump_state : String
+var active_jetpack_state : String
+# can be jumping (i think that will work) or dashing or umbrellaing
 
 # maybe i can signal from the states to here, and determine which action to switch to
 # depending on the current abilities
