@@ -1,8 +1,11 @@
 extends CharacterBody2D
 class_name Player
 
-var gravity = 2000.0
-var speed = 10000.0
+var gravity := 2000.0
+var speed := 10000.0
+var jump_strength := -600.0
+var special_jump_used := false
+
 var active_jetpack_state : String
 # can be jumping (i think that will work) or dashing or umbrellaing
 
@@ -24,7 +27,7 @@ var active_jetpack_state : String
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	active_jetpack_state = "jumping"
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
