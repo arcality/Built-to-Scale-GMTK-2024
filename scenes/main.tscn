@@ -1,3 +1,24 @@
-[gd_scene format=3 uid="uid://dwomfx0fg60wl"]
+[gd_scene load_steps=3 format=3 uid="uid://dwomfx0fg60wl"]
+
+[ext_resource type="PackedScene" uid="uid://dtibfqnrbikop" path="res://scenes/temp_walls.tscn" id="1_rj542"]
+[ext_resource type="PackedScene" uid="uid://cj6hyidnacgpm" path="res://scenes/player.tscn" id="2_tyjf3"]
 
 [node name="main" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("2_tyjf3")]
+position = Vector2(629, 447)
+
+[node name="walls and ground" type="Node2D" parent="."]
+
+[node name="temp walls" parent="walls and ground" instance=ExtResource("1_rj542")]
+position = Vector2(540, 618)
+
+[node name="temp walls2" parent="walls and ground" instance=ExtResource("1_rj542")]
+position = Vector2(707, 618)
+
+[node name="temp walls3" parent="walls and ground" instance=ExtResource("1_rj542")]
+position = Vector2(372, 618)
+
+[node name="temp walls4" parent="walls and ground" instance=ExtResource("1_rj542")]
+position = Vector2(259, 563)
+rotation = 1.5708
