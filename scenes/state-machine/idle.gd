@@ -1,19 +1,19 @@
 extends State
 
-
+var player : Player
 
 func Enter():
-	pass
+	player = owner
 
 func Exit():
 	pass
 
 func Update(delta):
-	if Input.get_axis("move_left", "move_right") != 0:
+	if player.movement_direction() != 0:
 		state_transition.emit(self, "running")
 		print("transition to running")
 	# makes sure that this was not triggered by stopping the spin
-	if Input.is_action_pressed("jump"):
+	if player.trying_jump() and player.is_on_floor():
 		state_transition.emit(self, "jumping")
 	
 
