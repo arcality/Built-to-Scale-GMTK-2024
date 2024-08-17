@@ -8,7 +8,9 @@ var special_jump_used := false
 var facing_direction := 1.0
 
 @export var active_jetpack_state : String
-# can be jumping (i think that will work) or dashing or umbrellaing
+# can be "jumping" or "dashing" or (WIP) "umbrellaing"
+
+@export var active_arm_state : String
 
 # DISREGARD THIS
 # maybe i can signal from the states to here, and determine which action to switch to

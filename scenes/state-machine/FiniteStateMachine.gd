@@ -5,6 +5,8 @@ var states : Dictionary = {}
 @export var initial_state: State
 var current_state : State
 
+# YOU PROBABLY SHOULDN'T CHANGE STUFF IN HERE
+
 func _ready():
 	# automatically adds each child to dictionary and connects signals via code
 	for child in get_children():
@@ -16,6 +18,9 @@ func _ready():
 	if initial_state:
 		initial_state.Enter()
 		current_state = initial_state
+	else:
+		states["idle"].Enter()
+		current_state = states["idle"]
 
 
 func change_state(old_state : State, new_state_name : String):

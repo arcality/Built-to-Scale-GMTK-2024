@@ -12,7 +12,6 @@ func Update(delta:float):
 	player.velocity.x = horizontal_direction * speed * delta
 	
 	if player.is_on_floor():
-		player.special_jump_used = false
 		state_transition.emit(self, "idle")
 		print("transition to idle")
 	

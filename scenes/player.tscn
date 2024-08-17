@@ -14,7 +14,7 @@ size = Vector2(128, 128)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_vscu2")
-active_jetpack_state = "jumping"
+active_jetpack_state = "dashing"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_bn55i")

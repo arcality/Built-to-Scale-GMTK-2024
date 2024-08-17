@@ -9,7 +9,7 @@ func Enter():
 	player.velocity.x = dash_speed * player.facing_direction
 	$Timer.start()
 	
-func Update(delta:float):
+func Update(_delta:float):
 	# generate particles or smth
 	pass
 	

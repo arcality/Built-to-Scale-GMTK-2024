@@ -4,6 +4,7 @@ var player : Player
 
 func Enter():
 	player = owner
+	player.special_jump_used = false
 
 func Exit():
 	pass
