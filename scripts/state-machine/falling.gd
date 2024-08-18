@@ -46,10 +46,15 @@ func Update(delta:float):
 			print("transition to clinging")
 			player.clinging_direction = -1.0
 	
-	if not player.special_jump_used and Input.is_action_just_pressed("jump"):
+	if player.climb_coyote_time > 0.0 and Input.is_action_just_pressed("jump") and player.active_arm_state == "walljumping":
+		state_transition.emit(self, "walljumping")
+		print("coyote wall jump")
+	elif not player.special_jump_used and Input.is_action_just_pressed("jump"):
 		player.special_jump_used = true
 		state_transition.emit(self, player.active_jetpack_state)
 		print("transition to special jump from falling")
+	
+		
 	
 	timer += 0.01
 

@@ -20,20 +20,22 @@ func Exit():
 	# re-enables falling
 	#player.gravity = 2000
 	#print(player.gravity)
+	
 	pass
 
 func Update(_delta:float):
 	
 	# starts jump buffer timer after letting go, and allows gravity 
-	if player.horizontal_movement_direction() != player.clinging_direction:
-		buffer_timer += 0.01
-		player.gravity = 2000
-	else:
-		buffer_timer = 0.0
-		player.gravity = 0
-		player.velocity.y = 0
+	#if player.horizontal_movement_direction() != player.clinging_direction:
+		#buffer_timer += 0.01
+		#player.gravity = 2000
+	#else:
+		#buffer_timer = 0.0
+		#player.gravity = 0
+		#player.velocity.y = 0
 		
-	if buffer_timer > 0.06:
+	if player.horizontal_movement_direction() != player.clinging_direction:
+		player.climb_coyote_time = 0.1
 		state_transition.emit(self, "falling")
 		print("transition to falling")
 	
