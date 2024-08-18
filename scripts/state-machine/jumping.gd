@@ -8,6 +8,6 @@ func Enter():
 	player = owner
 	player.velocity.y = player.jump_strength
 	
-func Update(delta:float):
+func Update(_delta : float):
 	state_transition.emit(self, "falling")
 	print("transition to falling")

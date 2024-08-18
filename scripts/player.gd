@@ -2,15 +2,15 @@ extends CharacterBody2D
 class_name Player # so that autocompletion partially works
 
 var gravity := 2000.0
-var speed := 20000.0
+var speed := 15000.0
 var jump_strength := -600.0
 var special_jump_used := false
 var facing_direction := 1.0
 
 # TODO: upadte these later to align with what features will eventually be
-# these are to 
+# these are for active arm, jetpack, and leg states to be in
 var jetpack_abilities = {"JET_DASH" : "jet_dash", "DOUBLE_JUMP" : "double_jump", "GLIDE" : "glide"}
-var arm_abilities = {"WALL_JUMP" : "wall_jump", "CLIMB": "climb", "HIGH_JUMP": "high_jump"}
+var arm_abilities = {"WALL_JUMP" : "walljumping", "CLIMB": "climbing", "HIGH_JUMP": "high_jump"}
 var leg_abilities = {"RUN" : "running", "SPRINT" : "sprinting"}
 
 @export var active_jetpack_state : String

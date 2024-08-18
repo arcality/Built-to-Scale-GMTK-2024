@@ -11,7 +11,7 @@ func Enter():
 	# speed here.
 	# this way the other states can access the player's speed without needing 
 	# to know which running state is being used by the robot
-	player.speed = 10000
+	player.speed = 15000
 	speed = player.speed
 
 
