@@ -11,7 +11,7 @@ func Enter():
 	# speed here.
 	# this way the other states can access the player's speed without needing 
 	# to know which running state is being used by the robot
-	player.speed = 10000
+	player.speed = 20000
 	speed = player.speed
 
 
@@ -28,6 +28,10 @@ func Update(delta:float):
 		state_transition.emit(self, "idle")
 		print("transition to idle")
 	
-	if player.trying_jump() and player.is_on_floor():
+	if Input.is_action_just_pressed("jump") and player.is_on_floor():
 		state_transition.emit(self, "jumping")
 		print("transition to jumping")
+		
+	if not player.is_on_floor():
+		state_transition.emit(self, "falling")
+		print("transition to falling")

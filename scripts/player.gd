@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Player # so that autocompletion partially works
 
 var gravity := 2000.0
-var speed := 10000.0
+var speed := 20000.0
 var jump_strength := -600.0
 var special_jump_used := false
 var facing_direction := 1.0

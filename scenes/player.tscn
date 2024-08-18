@@ -20,9 +20,11 @@ active_jetpack_state = "dashing"
 active_arm_state = "walljumping"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.7, 0.7)
 shape = SubResource("RectangleShape2D_bn55i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("1_adi12")
 
 [node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
@@ -55,12 +57,12 @@ script = ExtResource("9_k8hsb")
 script = ExtResource("10_vcfsn")
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
-position = Vector2(65, 0)
+position = Vector2(46, 0)
 target_position = Vector2(16, 0)
 hit_from_inside = true
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
-position = Vector2(-65, 0)
+position = Vector2(-46, 0)
 target_position = Vector2(-16, 0)
 hit_from_inside = true
 

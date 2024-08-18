@@ -20,7 +20,7 @@ func Update(delta:float):
 		state_transition.emit(self, "idle")
 		print("transition to idle")
 	
-	# checks if the player is touching a wall and falling down
+	# checks if the player is touching a wall and falling down and account for buffer
 	if player.is_on_wall() and player.velocity.y > 0 and timer > 0.1:
 		if Input.is_action_pressed("move_right") and $"../../RayCastRight".is_colliding():
 			state_transition.emit(self, "clinging")
@@ -30,7 +30,6 @@ func Update(delta:float):
 			state_transition.emit(self, "clinging")
 			print("transition to clinging")
 			player.clinging_direction = -1.0
-	# this might not work yet
 	
 	if not player.special_jump_used and Input.is_action_just_pressed("jump") and timer > 0.1:
 		player.special_jump_used = true

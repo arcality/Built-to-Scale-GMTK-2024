@@ -17,3 +17,4 @@ func Update(_delta:float):
 
 func _on_timer_timeout():
 	state_transition.emit(self, "falling")
+	print("transition to falling")
