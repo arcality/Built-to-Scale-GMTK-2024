@@ -10,11 +10,14 @@ func Enter():
 	$Timer.start()
 	
 func Update(_delta:float):
-	# generate particles or smth
-	pass
+	if player.is_on_wall():
+		$Timer.stop()
+		state_transition.emit(self, "falling")
+		print("transition to falling")
 	
 
 
 func _on_timer_timeout():
 	state_transition.emit(self, "falling")
 	print("transition to falling")
+	print("Timer timeout")
