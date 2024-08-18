@@ -51,8 +51,8 @@ func _process(delta):
 	
 	# stores a facing direction that is never zero/equal to the last direction
 	# input
-	if movement_direction() != 0:
-		facing_direction = movement_direction()
+	if horizontal_movement_direction() != 0:
+		facing_direction = horizontal_movement_direction()
 	
 	#print(gravity)
 	#print(clinging_direction)
@@ -67,7 +67,10 @@ func trying_jump() -> bool:
 	return false
 
 # returns the movement direction
-func movement_direction() -> float:
+func horizontal_movement_direction() -> float:
 	return Input.get_axis("move_left", "move_right")
+
+func vertical_movement_direction() -> float:
+	return Input.get_axis("move_up", "move_down")
 	
 	

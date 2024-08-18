@@ -21,7 +21,7 @@ func Exit():
 func Update(delta:float):
 	# directly changes horizontal velocity depending on left/right directional 
 	# keys
-	var horizontal_direction = player.movement_direction()
+	var horizontal_direction = player.horizontal_movement_direction()
 	player.velocity.x = horizontal_direction * speed * delta
 	
 	if horizontal_direction == 0:

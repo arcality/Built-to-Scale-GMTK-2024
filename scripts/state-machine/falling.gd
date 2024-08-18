@@ -11,15 +11,21 @@ func Enter():
 	player = owner
 	speed = player.speed
 	timer = 0.0
+	player.clinging_direction = 0.0
 	
 func Update(delta:float):
 	# player can control position in air
-	var horizontal_direction = player.movement_direction()
+	var horizontal_direction = player.horizontal_movement_direction()
 	player.velocity.x = horizontal_direction * speed * delta
 	
 	if player.is_on_floor():
 		state_transition.emit(self, "idle")
 		print("transition to idle")
+		
+	if player.velocity.y > 0:
+		player.gravity = 2300
+	else:
+		player.gravity = 2000
 	
 	# checks if the player is touching a wall and falling down
 	if player.is_on_wall() and player.velocity.y > 0:

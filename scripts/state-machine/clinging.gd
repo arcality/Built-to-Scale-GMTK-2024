@@ -18,14 +18,14 @@ func Enter():
 
 func Exit():
 	# re-enables falling
-	player.gravity = 2000
+	#player.gravity = 2000
 	#print(player.gravity)
-	player.clinging_direction = 0.0
+	pass
 
 func Update(_delta:float):
 	
 	# starts jump buffer timer after letting go, and allows gravity 
-	if player.movement_direction() != player.clinging_direction:
+	if player.horizontal_movement_direction() != player.clinging_direction:
 		buffer_timer += 0.01
 		player.gravity = 2000
 	else:
@@ -37,8 +37,13 @@ func Update(_delta:float):
 		state_transition.emit(self, "falling")
 		print("transition to falling")
 	
+	if player.vertical_movement_direction() != 0:
+		state_transition.emit(self, "climbing")
+		print("transition to climbing")
+	
 	if Input.is_action_just_pressed("jump") and player.active_arm_state == "walljumping":
 		state_transition.emit(self, "walljumping")
 		print("transition to walljumping")
+		
 	
 	

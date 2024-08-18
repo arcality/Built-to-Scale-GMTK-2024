@@ -11,7 +11,7 @@ func Exit():
 	pass
 
 func Update(_delta):
-	if player.movement_direction() != 0:
+	if player.horizontal_movement_direction() != 0:
 		state_transition.emit(self, "running")
 		print("transition to running")
 	
