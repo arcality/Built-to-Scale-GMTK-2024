@@ -6,7 +6,7 @@
 [node name="main" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("2_tyjf3")]
-position = Vector2(629, 447)
+position = Vector2(518, 475)
 
 [node name="walls and ground" type="Node2D" parent="."]
 
