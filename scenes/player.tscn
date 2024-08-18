@@ -1,13 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://dol4ikt2xc18v"]
+[gd_scene load_steps=11 format=3 uid="uid://dol4ikt2xc18v"]
 
 [ext_resource type="Texture2D" uid="uid://csjndqq7tdjkm" path="res://icon.svg" id="1_adi12"]
-[ext_resource type="Script" path="res://scenes/player.gd" id="1_vscu2"]
-[ext_resource type="Script" path="res://scenes/state-machine/FiniteStateMachine.gd" id="2_51co4"]
-[ext_resource type="Script" path="res://scenes/state-machine/idle.gd" id="4_oixml"]
-[ext_resource type="Script" path="res://scenes/state-machine/running.gd" id="5_4wmna"]
-[ext_resource type="Script" path="res://scenes/state-machine/jumping.gd" id="6_1pvae"]
-[ext_resource type="Script" path="res://scenes/state-machine/falling.gd" id="7_rlv7g"]
-[ext_resource type="Script" path="res://scenes/state-machine/dashing.gd" id="8_3whrh"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_vscu2"]
+[ext_resource type="Script" path="res://scripts/state-machine/FiniteStateMachine.gd" id="2_51co4"]
+[ext_resource type="Script" path="res://scripts/state-machine/idle.gd" id="4_oixml"]
+[ext_resource type="Script" path="res://scripts/state-machine/running.gd" id="5_4wmna"]
+[ext_resource type="Script" path="res://scripts/state-machine/jumping.gd" id="6_1pvae"]
+[ext_resource type="Script" path="res://scripts/state-machine/falling.gd" id="7_rlv7g"]
+[ext_resource type="Script" path="res://scripts/state-machine/dashing.gd" id="8_3whrh"]
+[ext_resource type="Script" path="res://scripts/state-machine/clinging.gd" id="9_k8hsb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bn55i"]
 size = Vector2(128, 128)
@@ -44,5 +45,8 @@ script = ExtResource("8_3whrh")
 [node name="Timer" type="Timer" parent="FiniteStateMachine/Dashing"]
 wait_time = 0.357
 one_shot = true
+
+[node name="Clinging" type="Node" parent="FiniteStateMachine"]
+script = ExtResource("9_k8hsb")
 
 [connection signal="timeout" from="FiniteStateMachine/Dashing/Timer" to="FiniteStateMachine/Dashing" method="_on_timer_timeout"]

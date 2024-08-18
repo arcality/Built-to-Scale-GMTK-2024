@@ -2,6 +2,8 @@ extends State
 
 var player : Player
 
+# executed quickly before transitioning to falling
+
 func Enter():
 	player = owner
 	player.velocity.y = player.jump_strength

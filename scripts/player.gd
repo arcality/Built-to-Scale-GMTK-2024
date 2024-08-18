@@ -1,5 +1,5 @@
 extends CharacterBody2D
-class_name Player
+class_name Player # so that autocompletion partially works
 
 var gravity := 2000.0
 var speed := 10000.0
@@ -11,6 +11,12 @@ var facing_direction := 1.0
 # can be "jumping" or "dashing" or (WIP) "umbrellaing"
 
 @export var active_arm_state : String
+# doesn't quite have same functionality as active_jetpack_state, but is still
+# being used to keep track of arms
+#
+# will eventually have "clinging" "climbing" "walljumping"
+# and (maybe) "jumping" for jump boosting arms (that won't be connected to a 
+# script though)
 
 # DISREGARD THIS
 # maybe i can signal from the states to here, and determine which action to switch to
@@ -48,13 +54,15 @@ func _process(delta):
 		facing_direction = movement_direction()
 	
 	move_and_slide()
-	
+
+# old functionality that is still used, but should be replaced with
+# Input.is_action_just_pressed() in scripts that use this
 func trying_jump() -> bool:
 	if Input.is_action_pressed("jump"):
 		return true
-		
 	return false
-	
+
+# returns the movement direction
 func movement_direction() -> float:
 	return Input.get_axis("move_left", "move_right")
 	
