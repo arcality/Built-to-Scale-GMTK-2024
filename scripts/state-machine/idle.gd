@@ -6,6 +6,10 @@ func Enter():
 	# sets player to root of scene
 	player = owner
 	player.special_jump_used = false
+	
+	player.target_velocity = 0
+	player.acceleration = 100
+	player.deceleration = 200
 
 func Exit():
 	pass

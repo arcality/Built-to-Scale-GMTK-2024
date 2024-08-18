@@ -18,4 +18,4 @@ func Update(delta:float):
 		print("transition to falling")
 	
 	player.velocity.y = player.vertical_movement_direction() * speed * delta
-	print(player.velocity.y)
+	#print(player.velocity.y)

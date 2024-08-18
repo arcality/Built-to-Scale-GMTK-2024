@@ -5,8 +5,13 @@ var gravity := 2000.0
 var speed := 20000.0
 var jump_strength := -600.0
 var special_jump_used := false
-var facing_direction := 1.0
+var facing_direction := 1.0 # for dashing
 var clinging_direction := 0.0
+
+
+var target_velocity : float
+var acceleration_amount: float
+var deceleration_amount: float
 
 @export var active_jetpack_state : String
 # can be "jumping" or "dashing" or (WIP) "umbrellaing"
@@ -50,9 +55,29 @@ func _process(delta):
 		velocity.y += gravity * delta
 	
 	# stores a facing direction that is never zero/equal to the last direction
-	# input
+	# input (mainly for dashing)
 	if horizontal_movement_direction() != 0:
 		facing_direction = horizontal_movement_direction()
+	
+	# if current velocity is to the right
+	if velocity.x > 0:
+		# if target velocity is greater than current velocity (acceleration)
+		if velocity.x < target_velocity:
+			velocity.x = move_toward(velocity.x, target_velocity, acceleration_amount)
+		# if target velocity is less than current velocity (deceleration)
+		if velocity.x > target_velocity:
+			velocity.x = move_toward(velocity.x, target_velocity, deceleration_amount)
+	# if current velocity is to the right
+	elif velocity.x < 0:
+		# if target velocity is less than current velocity (acceleration)
+		if velocity.x > target_velocity:
+			velocity.x = move_toward(velocity.x, target_velocity, acceleration_amount)
+		# if target velocity is greater than current velocity (deceleration)
+		if velocity.x < target_velocity:
+			velocity.x = move_toward(velocity.x, target_velocity, deceleration_amount)
+	elif velocity.x == 0:
+		velocity.x = move_toward(velocity.x, target_velocity, acceleration_amount)
+	
 	
 	#print(gravity)
 	#print(clinging_direction)
