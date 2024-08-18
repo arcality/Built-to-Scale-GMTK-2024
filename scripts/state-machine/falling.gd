@@ -20,7 +20,7 @@ func Update(delta:float):
 	if player.is_on_wall() and player.velocity.y > 0:
 		state_transition.emit(self, "clinging")
 		print("transition to clinging")
-	# this might now work yet
+	# this might not work yet
 	
 	if not player.special_jump_used and Input.is_action_just_pressed("jump"):
 		player.special_jump_used = true
