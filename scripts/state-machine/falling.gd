@@ -13,6 +13,8 @@ func Update(delta:float):
 	player.velocity.x = horizontal_direction * speed * delta
 	
 	if player.is_on_floor():
+		# reset special jump ability when landing on floor
+		player.special_jump_used = false
 		state_transition.emit(self, "idle")
 		print("transition to idle")
 	
@@ -20,8 +22,8 @@ func Update(delta:float):
 	if player.is_on_wall() and player.velocity.y > 0:
 		state_transition.emit(self, "clinging")
 		print("transition to clinging")
-	# this might not work yet
 	
+	#transitions from falling to special jetpack state
 	if not player.special_jump_used and Input.is_action_just_pressed("jump"):
 		player.special_jump_used = true
 		state_transition.emit(self, player.active_jetpack_state)

@@ -2,10 +2,16 @@ extends CharacterBody2D
 class_name Player # so that autocompletion partially works
 
 var gravity := 2000.0
-var speed := 10000.0
+var speed := 20000.0
 var jump_strength := -600.0
 var special_jump_used := false
 var facing_direction := 1.0
+
+# TODO: upadte these later to align with what features will eventually be
+# these are to 
+var jetpack_abilities = {"JET_DASH" : "jet_dash", "DOUBLE_JUMP" : "double_jump", "GLIDE" : "glide"}
+var arm_abilities = {"WALL_JUMP" : "wall_jump", "CLIMB": "climb", "HIGH_JUMP": "high_jump"}
+var leg_abilities = {"RUN" : "running", "SPRINT" : "sprinting"}
 
 @export var active_jetpack_state : String
 # can be "jumping" or "dashing" or (WIP) "umbrellaing"
@@ -31,6 +37,7 @@ var facing_direction := 1.0
 # themselves do not need to worry about that
 # however, state changes may be dependent on which state the player is currently in,
 # so it could be easier to change to a state from the state itself
+# ARCALITY - I agree states should probably handle the changes themselves
 
 # ** USING THIS ** active_jetpack_state
 # i could have a variable in the player class that corresponds with the name of

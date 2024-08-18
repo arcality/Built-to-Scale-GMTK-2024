@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://csjndqq7tdjkm" path="res://icon.svg" id="1_tj54d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bn3ju"]
-size = Vector2(343, 19)
+size = Vector2(554, 19)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ervrn"]
 size = Vector2(16.5, 196.5)
@@ -11,7 +11,7 @@ size = Vector2(16.5, 196.5)
 [node name="TempTerrain" type="StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-216, 9.5)
+position = Vector2(-214, 9.5)
 shape = SubResource("RectangleShape2D_bn3ju")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]

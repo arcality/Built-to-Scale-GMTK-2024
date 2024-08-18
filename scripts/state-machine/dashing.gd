@@ -11,10 +11,7 @@ func Enter():
 	$Timer.start()
 	
 func Update(_delta:float):
-	# generate particles or smth
-	pass
-	
-
+	player.velocity.y = 0
 
 func _on_timer_timeout():
 	

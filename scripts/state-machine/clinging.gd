@@ -10,7 +10,6 @@ func Enter():
 	player.special_jump_used = false
 	player.gravity = 0
 	player.velocity.y = 0
-	
 
 func Exit():
 	player.gravity = 2000
@@ -19,7 +18,7 @@ func Update(delta : float):
 	var horizontal_direction = player.movement_direction()
 	player.velocity.x = horizontal_direction * speed * delta
 	
-	# clinging to running
+	# clinging to running - will detach
 	if player.movement_direction() != 0:
 		state_transition.emit(self, "running")
 		print("transition to running from clinging")

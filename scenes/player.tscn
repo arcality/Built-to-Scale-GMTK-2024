@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://cj6hyidnacgpm"]
 
-[ext_resource type="Texture2D" uid="uid://csjndqq7tdjkm" path="res://icon.svg" id="1_adi12"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_vscu2"]
 [ext_resource type="Script" path="res://scripts/state-machine/FiniteStateMachine.gd" id="2_51co4"]
+[ext_resource type="Texture2D" uid="uid://dje0j7uc1ead7" path="res://assets/graphics/player/stickman.png" id="2_xorny"]
 [ext_resource type="Script" path="res://scripts/state-machine/idle.gd" id="4_oixml"]
 [ext_resource type="Script" path="res://scripts/state-machine/running.gd" id="5_4wmna"]
 [ext_resource type="Script" path="res://scripts/state-machine/jumping.gd" id="6_1pvae"]
@@ -11,17 +11,20 @@
 [ext_resource type="Script" path="res://scripts/state-machine/clinging.gd" id="9_k8hsb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bn55i"]
-size = Vector2(128, 128)
+size = Vector2(52, 75)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_vscu2")
 active_jetpack_state = "dashing"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_bn55i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_adi12")
+position = Vector2(3.8147e-06, 7.62939e-06)
+scale = Vector2(0.35034, 0.35034)
+texture = ExtResource("2_xorny")
 
 [node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_51co4")
@@ -43,7 +46,7 @@ script = ExtResource("7_rlv7g")
 script = ExtResource("8_3whrh")
 
 [node name="Timer" type="Timer" parent="FiniteStateMachine/Dashing"]
-wait_time = 0.357
+wait_time = 0.157
 one_shot = true
 
 [node name="Clinging" type="Node" parent="FiniteStateMachine"]
