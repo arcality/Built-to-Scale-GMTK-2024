@@ -7,7 +7,7 @@ var dash_speed = 3000
 func Enter():
 	player = owner
 	player.velocity.x = dash_speed * player.facing_direction
-	player.gravity = 500
+	player.gravity = 0
 	$Timer.start()
 	
 func Update(_delta:float):
