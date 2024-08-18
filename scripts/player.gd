@@ -53,6 +53,8 @@ func _process(delta):
 	if movement_direction() != 0:
 		facing_direction = movement_direction()
 	
+	print(gravity)
+	
 	move_and_slide()
 
 # old functionality that is still used, but should be replaced with

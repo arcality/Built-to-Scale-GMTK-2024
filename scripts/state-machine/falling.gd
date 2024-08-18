@@ -3,9 +3,13 @@ extends State
 var player : Player
 var speed : float
 
+# to make sure that state is not immediately left if that is not intended
+var timer : float
+
 func Enter():
 	player = owner
 	speed = player.speed
+	timer = 0.0
 	
 func Update(delta:float):
 	# player can control position in air
@@ -17,7 +21,7 @@ func Update(delta:float):
 		print("transition to idle")
 	
 	# checks if the player is touching a wall and falling down
-	if player.is_on_wall() and player.velocity.y > 0:
+	if player.is_on_wall() and player.velocity.y > 0 and player.movement_direction() != 0 and timer > 0.1:
 		state_transition.emit(self, "clinging")
 		print("transition to clinging")
 	# this might not work yet
@@ -26,4 +30,6 @@ func Update(delta:float):
 		player.special_jump_used = true
 		state_transition.emit(self, player.active_jetpack_state)
 		print("transition to jumping from falling")
+	
+	timer += 0.01
 
