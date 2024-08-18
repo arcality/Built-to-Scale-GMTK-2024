@@ -6,6 +6,7 @@ var speed := 10000.0
 var jump_strength := -600.0
 var special_jump_used := false
 var facing_direction := 1.0
+var clinging_direction := 0.0
 
 @export var active_jetpack_state : String
 # can be "jumping" or "dashing" or (WIP) "umbrellaing"
@@ -14,7 +15,7 @@ var facing_direction := 1.0
 # doesn't quite have same functionality as active_jetpack_state, but is still
 # being used to keep track of arms
 #
-# will eventually have "clinging" "climbing" "walljumping"
+# will eventually have "climbing" "walljumping"
 # and (maybe) "jumping" for jump boosting arms (that won't be connected to a 
 # script though)
 
@@ -53,7 +54,8 @@ func _process(delta):
 	if movement_direction() != 0:
 		facing_direction = movement_direction()
 	
-	print(gravity)
+	#print(gravity)
+	#print(clinging_direction)
 	
 	move_and_slide()
 

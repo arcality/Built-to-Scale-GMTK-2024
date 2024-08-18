@@ -21,12 +21,18 @@ func Update(delta:float):
 		print("transition to idle")
 	
 	# checks if the player is touching a wall and falling down
-	if player.is_on_wall() and player.velocity.y > 0 and player.movement_direction() != 0 and timer > 0.1:
-		state_transition.emit(self, "clinging")
-		print("transition to clinging")
+	if player.is_on_wall() and player.velocity.y > 0 and timer > 0.1:
+		if Input.is_action_pressed("move_right") and $"../../RayCastRight".is_colliding():
+			state_transition.emit(self, "clinging")
+			print("transition to clinging")
+			player.clinging_direction = 1.0
+		if Input.is_action_pressed("move_left") and $"../../RayCastLeft".is_colliding():
+			state_transition.emit(self, "clinging")
+			print("transition to clinging")
+			player.clinging_direction = -1.0
 	# this might not work yet
 	
-	if not player.special_jump_used and Input.is_action_just_pressed("jump"):
+	if not player.special_jump_used and Input.is_action_just_pressed("jump") and timer > 0.1:
 		player.special_jump_used = true
 		state_transition.emit(self, player.active_jetpack_state)
 		print("transition to jumping from falling")
