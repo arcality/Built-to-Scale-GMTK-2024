@@ -6,7 +6,7 @@
 [node name="Main" type="Node"]
 
 [node name="TempTerrain" parent="." instance=ExtResource("1_k1u6s")]
-position = Vector2(637, 589)
+position = Vector2(795, 589)
 
 [node name="Player" parent="." instance=ExtResource("2_tyjf3")]
-position = Vector2(488, 416)
+position = Vector2(702, 279)
