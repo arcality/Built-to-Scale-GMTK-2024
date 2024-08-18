@@ -38,3 +38,13 @@ func Update(delta:float):
 	if not player.is_on_floor():
 		state_transition.emit(self, "falling")
 		print("transition to falling")
+	
+	if player.is_on_wall() and player.vertical_movement_direction() != 0 and player.active_arm_state == "climbing":
+		if Input.is_action_pressed("move_right") and $"../../RayCastRight".is_colliding():
+			state_transition.emit(self, "clinging")
+			print("transition to clinging")
+			player.clinging_direction = 1.0
+		if Input.is_action_pressed("move_left") and $"../../RayCastLeft".is_colliding():
+			state_transition.emit(self, "clinging")
+			print("transition to clinging")
+			player.clinging_direction = -1.0

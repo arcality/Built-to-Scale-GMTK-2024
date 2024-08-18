@@ -78,7 +78,7 @@ func _process(delta):
 	elif velocity.x == 0:
 		velocity.x = move_toward(velocity.x, target_velocity, acceleration_amount)
 	
-	print(velocity.x)
+	#print(velocity.x)
 	#if velocity.x == 0.0 and not is_on_floor():
 		#print("stopped")
 	
