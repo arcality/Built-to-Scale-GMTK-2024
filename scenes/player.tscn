@@ -1,0 +1,73 @@
+[gd_scene load_steps=13 format=3 uid="uid://dol4ikt2xc18v"]
+
+[ext_resource type="Texture2D" uid="uid://csjndqq7tdjkm" path="res://icon.svg" id="1_adi12"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_vscu2"]
+[ext_resource type="Script" path="res://scripts/state-machine/FiniteStateMachine.gd" id="2_51co4"]
+[ext_resource type="Script" path="res://scripts/state-machine/idle.gd" id="4_oixml"]
+[ext_resource type="Script" path="res://scripts/state-machine/running.gd" id="5_4wmna"]
+[ext_resource type="Script" path="res://scripts/state-machine/jumping.gd" id="6_1pvae"]
+[ext_resource type="Script" path="res://scripts/state-machine/falling.gd" id="7_rlv7g"]
+[ext_resource type="Script" path="res://scripts/state-machine/dashing.gd" id="8_3whrh"]
+[ext_resource type="Script" path="res://scripts/state-machine/clinging.gd" id="9_k8hsb"]
+[ext_resource type="Script" path="res://scripts/state-machine/walljumping.gd" id="10_vcfsn"]
+[ext_resource type="Script" path="res://scenes/climbing.gd" id="11_mfx5q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bn55i"]
+size = Vector2(128, 128)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_vscu2")
+active_jetpack_state = "dashing"
+active_arm_state = "walljumping"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.7, 0.7)
+shape = SubResource("RectangleShape2D_bn55i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_adi12")
+
+[node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_51co4")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="FiniteStateMachine"]
+script = ExtResource("4_oixml")
+
+[node name="Running" type="Node" parent="FiniteStateMachine"]
+script = ExtResource("5_4wmna")
+
+[node name="Jumping" type="Node" parent="FiniteStateMachine"]
+script = ExtResource("6_1pvae")
+
+[node name="Falling" type="Node" parent="FiniteStateMachine"]
+script = ExtResource("7_rlv7g")
+
+[node name="Dashing" type="Node" parent="FiniteStateMachine"]
+script = ExtResource("8_3whrh")
+
+[node name="Timer" type="Timer" parent="FiniteStateMachine/Dashing"]
+wait_time = 0.096
+one_shot = true
+
+[node name="Clinging" type="Node" parent="FiniteStateMachine"]
+script = ExtResource("9_k8hsb")
+
+[node name="Walljumping" type="Node" parent="FiniteStateMachine"]
+script = ExtResource("10_vcfsn")
+
+[node name="Climbing" type="Node" parent="FiniteStateMachine"]
+script = ExtResource("11_mfx5q")
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(46, 0)
+target_position = Vector2(16, 0)
+hit_from_inside = true
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(-46, 0)
+target_position = Vector2(-16, 0)
+hit_from_inside = true
+
+[connection signal="timeout" from="FiniteStateMachine/Dashing/Timer" to="FiniteStateMachine/Dashing" method="_on_timer_timeout"]
