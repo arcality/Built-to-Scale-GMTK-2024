@@ -7,6 +7,7 @@ var dash_speed = 1000
 func Enter():
 	player = owner
 	player.velocity.x = dash_speed * player.facing_direction
+	player.velocity.y = 0
 	$Timer.start()
 	
 func Update(_delta:float):
@@ -16,4 +17,16 @@ func Update(_delta:float):
 
 
 func _on_timer_timeout():
-	state_transition.emit(self, "falling")
+	
+	if player.movement_direction() != 0:
+		state_transition.emit(self, "running")
+		print("dashing to running")
+	
+	elif player.trying_jump() and player.is_on_floor():
+		state_transition.emit(self, "jumping")
+		print("transition to jumping from dashing")
+	
+	else:
+		state_transition.emit(self, "falling")
+		print("transition to falling from dashing")
+

@@ -3,27 +3,54 @@
 [ext_resource type="Texture2D" uid="uid://csjndqq7tdjkm" path="res://icon.svg" id="1_tj54d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bn3ju"]
-size = Vector2(365, 19)
+size = Vector2(343, 19)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ervrn"]
-size = Vector2(20, 195)
+size = Vector2(16.5, 196.5)
 
 [node name="TempTerrain" type="StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-72.5, 9.5)
+position = Vector2(-216, 9.5)
 shape = SubResource("RectangleShape2D_bn3ju")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(100, -97.5)
+position = Vector2(416.75, -12)
 shape = SubResource("RectangleShape2D_ervrn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(100, -97.5)
+position = Vector2(415, -13.125)
+scale = Vector2(0.15625, 1.5293)
+texture = ExtResource("1_tj54d")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(-483, -98.4998)
+shape = SubResource("RectangleShape2D_ervrn")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(-483, -98.4998)
+scale = Vector2(0.15625, 1.52344)
+texture = ExtResource("1_tj54d")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2(72, 97.5002)
+shape = SubResource("RectangleShape2D_ervrn")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(72, 97.5002)
 scale = Vector2(0.15625, 1.52344)
 texture = ExtResource("1_tj54d")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(-72.4999, 9.5)
-scale = Vector2(2.85156, 0.148437)
+position = Vector2(-215, 9.5)
+scale = Vector2(4.32813, 0.148437)
+texture = ExtResource("1_tj54d")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
+position = Vector2(253.5, 93.5)
+shape = SubResource("RectangleShape2D_bn3ju")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(252.5, 94)
+scale = Vector2(2.69531, 0.148437)
 texture = ExtResource("1_tj54d")

@@ -18,6 +18,7 @@ func Update(_delta):
 	if player.trying_jump() and player.is_on_floor():
 		state_transition.emit(self, "jumping")
 		print("transition to jumping from idle")
+		
 	
 
 

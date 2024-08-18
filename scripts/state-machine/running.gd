@@ -24,10 +24,17 @@ func Update(delta:float):
 	var horizontal_direction = player.movement_direction()
 	player.velocity.x = horizontal_direction * speed * delta
 	
+	# running to idle
 	if horizontal_direction == 0:
 		state_transition.emit(self, "idle")
 		print("transition to idle")
 	
+	# running to jumping
 	if player.trying_jump() and player.is_on_floor():
 		state_transition.emit(self, "jumping")
 		print("transition to jumping")
+	
+	# running to falling
+	if not player.is_on_floor():
+		state_transition.emit(self, "falling")
+		print("transition to falling")
