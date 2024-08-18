@@ -11,7 +11,7 @@ func Enter():
 	
 	#player.target_velocity = 0
 	player.acceleration_amount = 75
-	player.deceleration_amount = 200
+	player.deceleration_amount = 300
 
 func Exit():
 	pass

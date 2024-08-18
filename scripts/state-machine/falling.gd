@@ -29,11 +29,11 @@ func Update(delta:float):
 	if player.velocity.y < 0: # going up
 		player.gravity = 2000
 		player.acceleration_amount = 40
-		player.acceleration_amount = 100
+		player.deceleration_amount = 200
 	else: # going down
 		player.gravity = 2300
 		player.acceleration_amount = 75
-		player.acceleration_amount = 200
+		player.deceleration_amount = 200
 	
 	# checks if the player is touching a wall and falling down
 	if player.is_on_wall() and player.velocity.y > 0:
