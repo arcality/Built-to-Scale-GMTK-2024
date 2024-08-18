@@ -78,6 +78,7 @@ func _process(delta):
 	elif velocity.x == 0:
 		velocity.x = move_toward(velocity.x, target_velocity, acceleration_amount)
 	
+	print(velocity.x)
 	
 	#print(gravity)
 	#print(clinging_direction)

@@ -37,7 +37,7 @@ func Update(_delta:float):
 		state_transition.emit(self, "falling")
 		print("transition to falling")
 	
-	if player.vertical_movement_direction() != 0:
+	if player.vertical_movement_direction() != 0 and player.active_arm_state == "climbing":
 		state_transition.emit(self, "climbing")
 		print("transition to climbing")
 	

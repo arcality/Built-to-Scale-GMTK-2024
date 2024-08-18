@@ -13,6 +13,9 @@ func Enter():
 	# to know which running state is being used by the robot
 	player.speed = 20000
 	speed = player.speed
+	
+	player.acceleration_amount = 75
+	player.deceleration_amount = 200
 
 
 func Exit():
@@ -22,7 +25,7 @@ func Update(delta:float):
 	# directly changes horizontal velocity depending on left/right directional 
 	# keys
 	var horizontal_direction = player.horizontal_movement_direction()
-	player.velocity.x = horizontal_direction * speed * delta
+	player.target_velocity = horizontal_direction * speed * delta
 	
 	if horizontal_direction == 0:
 		state_transition.emit(self, "idle")

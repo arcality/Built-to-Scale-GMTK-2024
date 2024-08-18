@@ -13,19 +13,27 @@ func Enter():
 	timer = 0.0
 	player.clinging_direction = 0.0
 	
+	
+	
 func Update(delta:float):
 	# player can control position in air
+	
+	
 	var horizontal_direction = player.horizontal_movement_direction()
-	player.velocity.x = horizontal_direction * speed * delta
+	player.target_velocity = horizontal_direction * speed * delta
 	
 	if player.is_on_floor():
 		state_transition.emit(self, "idle")
 		print("transition to idle")
 		
-	if player.velocity.y > 0:
-		player.gravity = 2300
-	else:
+	if player.velocity.y < 0: # going up
 		player.gravity = 2000
+		player.acceleration_amount = 40
+		player.acceleration_amount = 100
+	else: # going down
+		player.gravity = 2300
+		player.acceleration_amount = 75
+		player.acceleration_amount = 200
 	
 	# checks if the player is touching a wall and falling down
 	if player.is_on_wall() and player.velocity.y > 0:
@@ -41,7 +49,7 @@ func Update(delta:float):
 	if not player.special_jump_used and Input.is_action_just_pressed("jump"):
 		player.special_jump_used = true
 		state_transition.emit(self, player.active_jetpack_state)
-		print("transition to jumping from falling")
+		print("transition to special jump from falling")
 	
 	timer += 0.01
 
