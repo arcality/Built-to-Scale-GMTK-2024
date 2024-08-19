@@ -2,6 +2,7 @@ extends Node
 
 # editing area variables
 @onready var edit_area = $edit_area
+@onready var edit_menu = $edit_menu
 var editing = false
 var in_edit_bounds = false
 
@@ -12,19 +13,19 @@ func _process(_delta):
 
 func editMenu():
 	if editing:
-		edit_area.edit_menu.hide()
+		edit_menu.hide()
 		Engine.time_scale = 1
 	else:
-		edit_area.edit_menu.show()
+		edit_menu.show()
 		Engine.time_scale = 0
 	
 	editing = !editing
 
 
 # is player in bounds?
-func _on_edit_area_player_entered(body):
+func _on_edit_area_player_entered(_body):
 	in_edit_bounds = true
 
 # is player out of bounds?
-func _on_edit_area_player_exited(body):
+func _on_edit_area_player_exited(_body):
 	in_edit_bounds = false

@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://beebwu1e2xqof"]
+[gd_scene load_steps=3 format=3 uid="uid://beebwu1e2xqof"]
 
 [ext_resource type="Script" path="res://scripts/edit_menu.gd" id="1_nxwmh"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_gf118"]
 
 [node name="edit_menu" type="Control"]
 layout_mode = 3
@@ -11,17 +13,49 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nxwmh")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.114897, 0.114897, 0.114897, 0.2)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = SubResource("CanvasTexture_gf118")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 60
 
-[node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
-texture_filter = 2
+[node name="Seperator" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="Seperator2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Resume" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+texture_filter = 2
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "Resume"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]

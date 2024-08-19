@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://ce5q1qa0j4hhh"]
+[gd_scene load_steps=3 format=3 uid="uid://ce5q1qa0j4hhh"]
 
 [ext_resource type="Script" path="res://scripts/edit_area.gd" id="1_1v7a8"]
-[ext_resource type="PackedScene" uid="uid://beebwu1e2xqof" path="res://scenes/edit_menu.tscn" id="2_rtyo1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vphfq"]
 size = Vector2(269.5, 133)
@@ -13,8 +12,6 @@ script = ExtResource("1_1v7a8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_vphfq")
-
-[node name="edit_menu" parent="." instance=ExtResource("2_rtyo1")]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
