@@ -87,7 +87,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_c82bi")
 }],
 "loop": true,
-"name": &"run",
+"name": &"running",
 "speed": 10.0
 }]
 
@@ -113,9 +113,8 @@ shape = SubResource("RectangleShape2D_bn55i")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4.25, 4.25)
 sprite_frames = SubResource("SpriteFrames_io8bg")
-animation = &"run"
+animation = &"running"
 autoplay = "idle"
-frame_progress = 0.327167
 
 [node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_51co4")

@@ -56,6 +56,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
+	# gravity processing
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	
@@ -71,10 +73,16 @@ func _process(delta):
 		player_sprite.flip_h = true
 	
 	# play sprite animations
-	if horizontal_movement_direction() == 0:
-		player_sprite.play("idle")
+	#if horizontal_movement_direction() == 0:
+		#player_sprite.play("idle")
+	#else:
+		#player_sprite.play("running")
+	
+	if $FiniteStateMachine.current_state.name.to_lower() in player_sprite.sprite_frames.get_animation_names():
+		print($FiniteStateMachine.current_state.name.to_lower())
+		player_sprite.play($FiniteStateMachine.current_state.name.to_lower())
 	else:
-		player_sprite.play("run")
+		player_sprite.play("idle")
 	
 	# if current velocity is to the right
 	if velocity.x > 0:

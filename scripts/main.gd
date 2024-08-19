@@ -7,8 +7,9 @@ var editing = false
 var in_edit_bounds = false
 
 var levels = {1:preload("res://scenes/levels/level_one.tscn").instantiate(),
-2:preload("res://scenes/levels/level_two.tscn").instantiate()}
-var level_spawns = {1:Vector2(1200,600), 2:Vector2(200,500)}
+2:preload("res://scenes/levels/level_two.tscn").instantiate(),
+3:preload("res://scenes/levels/level_three.tscn").instantiate()}
+var level_spawns = {1:Vector2(1200,600), 2:Vector2(200,500), 3:Vector2(200,600)}
 
 #var game = preload("res://scenes/levels/level_one.tscn").instantiate()
 
@@ -17,7 +18,7 @@ var level_spawns = {1:Vector2(1200,600), 2:Vector2(200,500)}
 func _ready():
 	#$Player.position = level_spawns["LevelOne"]
 	#$Player.spawn_position = level_spawns["LevelOne"]
-	change_to_level(2)
+	change_to_level(1)
 	
 
 func _process(_delta):
