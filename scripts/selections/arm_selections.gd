@@ -10,5 +10,8 @@ func _ready():
 	print(arm_group.get_buttons())
 
 func button_toggled(toggled_on: bool):
-	print(arm_group.get_pressed_button())
-	print(toggled_on)
+	if arm_group.get_pressed_button() != null && toggled_on:
+		print(arm_group.get_pressed_button().name)
+	elif arm_group.get_pressed_button() == null:
+		print(arm_group.get_pressed_button())
+	# print(toggled_on)
