@@ -26,3 +26,5 @@ position = Vector2(972, 232)
 
 [connection signal="player_entered" from="edit_area" to="." method="_on_edit_area_player_entered"]
 [connection signal="player_exited" from="edit_area" to="." method="_on_edit_area_player_exited"]
+[connection signal="arm_selected" from="edit_menu" to="Player" method="_on_edit_menu_arm_selected"]
+[connection signal="jetpack_selected" from="edit_menu" to="Player" method="_on_edit_menu_jetpack_selected"]

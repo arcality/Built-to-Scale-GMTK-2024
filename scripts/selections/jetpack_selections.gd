@@ -1,8 +1,9 @@
 extends Control
 
+# mutually exclusive button group
 @export var jetpack_group: ButtonGroup
 signal toggled(toggled_on: bool)
-
+signal jetpack_selected(jetpack_type: Button)
 
 func _ready():
 	# running the button_pressed() function whenever a button is pressed
@@ -12,8 +13,11 @@ func _ready():
 
 # send signal that button has been toggled up
 func button_toggled(toggled_on: bool):
-	if jetpack_group.get_pressed_button() != null && toggled_on:
-		print(jetpack_group.get_pressed_button().name)
-	elif jetpack_group.get_pressed_button() == null:
-		print(jetpack_group.get_pressed_button())
-	# print(toggled_on)
+	#if jetpack_group.get_pressed_button() != null && toggled_on:
+		#print(jetpack_group.get_pressed_button().name)
+	#elif jetpack_group.get_pressed_button() == null:
+		#print(jetpack_group.get_pressed_button())
+	
+	# emit which ability is selected when it is on
+	if toggled_on:
+		jetpack_selected.emit(jetpack_group.get_pressed_button())

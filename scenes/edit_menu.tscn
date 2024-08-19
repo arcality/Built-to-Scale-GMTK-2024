@@ -79,4 +79,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Resume"
 
+[connection signal="jetpack_selected" from="MarginContainer/HBoxContainer/VBoxContainer/jetpack_selections" to="." method="_on_jetpack_selections_jetpack_selected"]
+[connection signal="arm_selected" from="MarginContainer/HBoxContainer/VBoxContainer/arm_selections" to="." method="_on_arm_selections_arm_selected"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]

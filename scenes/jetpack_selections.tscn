@@ -22,17 +22,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Double Jump Button" type="CheckBox" parent="HBoxContainer"]
+[node name="doublejumping" type="CheckBox" parent="HBoxContainer"]
 layout_mode = 2
 button_group = ExtResource("1_ohsls")
 text = "Double Jump"
 
-[node name="Umbrella Button" type="CheckBox" parent="HBoxContainer"]
+[node name="umbrellaing" type="CheckBox" parent="HBoxContainer"]
 layout_mode = 2
 button_group = ExtResource("1_ohsls")
 text = "Umbrella"
 
-[node name="Dash Button" type="CheckBox" parent="HBoxContainer"]
+[node name="dashing" type="CheckBox" parent="HBoxContainer"]
 layout_mode = 2
 button_group = ExtResource("1_ohsls")
 text = "Dash"

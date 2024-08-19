@@ -24,17 +24,17 @@ offset_right = 152.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Wall Jump Button" type="CheckBox" parent="HBoxContainer"]
+[node name="walljumping" type="CheckBox" parent="HBoxContainer"]
 layout_mode = 2
 button_group = ExtResource("1_aav1q")
 text = "Wall Jump"
 
-[node name="Climb Button" type="CheckBox" parent="HBoxContainer"]
+[node name="climbing" type="CheckBox" parent="HBoxContainer"]
 layout_mode = 2
 button_group = ExtResource("1_aav1q")
 text = "Climb"
 
-[node name="Jump Boost Button" type="CheckBox" parent="HBoxContainer"]
+[node name="jumpboosting" type="CheckBox" parent="HBoxContainer"]
 layout_mode = 2
 button_group = ExtResource("1_aav1q")
 text = "Jump Boost"
