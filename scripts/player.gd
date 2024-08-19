@@ -127,3 +127,22 @@ func vertical_movement_direction() -> float:
 	return Input.get_axis("move_up", "move_down")
 	
 	
+
+# setting active_arm_state when changed in edit menu
+func _on_edit_menu_arm_selected(arm_type):
+	# NULL CHECK IF BUTTON IS DESELECTED
+	if arm_type != null:
+		active_arm_state = arm_type.name
+	else:
+		# if no ability selected, set active_arm_state to empty string
+		active_arm_state = ""
+	print(active_arm_state)
+
+# setting active_jetpack_state when changed in edit menu
+func _on_edit_menu_jetpack_selected(jetpack_type):
+	if jetpack_type != null:
+		active_jetpack_state = jetpack_type.name
+	else:
+		# if no ability selected, set active_jetpack_state to empty string
+		active_jetpack_state = ""
+	print(active_jetpack_state)

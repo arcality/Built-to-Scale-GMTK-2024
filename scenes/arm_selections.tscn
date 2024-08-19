@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsxfdrovrhr7m"]
+
+[ext_resource type="ButtonGroup" uid="uid://b5k7yc40xf133" path="res://resources/arm_selections.tres" id="1_aav1q"]
+[ext_resource type="Script" path="res://scripts/selections/arm_selections.gd" id="1_dp82o"]
+
+[node name="arm_selections" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dp82o")
+arm_group = ExtResource("1_aav1q")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -152.0
+offset_right = 152.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="walljumping" type="CheckBox" parent="HBoxContainer"]
+layout_mode = 2
+button_group = ExtResource("1_aav1q")
+text = "Wall Jump"
+
+[node name="climbing" type="CheckBox" parent="HBoxContainer"]
+layout_mode = 2
+button_group = ExtResource("1_aav1q")
+text = "Climb"
+
+[node name="jumpboosting" type="CheckBox" parent="HBoxContainer"]
+layout_mode = 2
+button_group = ExtResource("1_aav1q")
+text = "Jump Boost"
