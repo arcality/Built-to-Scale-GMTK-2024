@@ -11,10 +11,10 @@ func Enter():
 	# reset doublejump
 	player.special_jump_used = false
 	
-	# stops falling
-	player.gravity = 0
-	player.velocity.y = 0
-	
+	if player.active_arm_state == "climbing": 
+		# stops falling
+		player.gravity = 0
+		player.velocity.y = 0
 
 func Exit():
 	# re-enables falling
@@ -35,7 +35,7 @@ func Update(_delta:float):
 		#player.velocity.y = 0
 		
 	if player.horizontal_movement_direction() != player.clinging_direction:
-		player.climb_coyote_time = 0.08
+		player.climb_coyote_time = 0.12
 		state_transition.emit(self, "falling")
 		print("transition to falling")
 		if Input.is_action_just_pressed("jump") and player.active_arm_state == "walljumping":
