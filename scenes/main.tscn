@@ -1,13 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://v30ilrrghva1"]
+[gd_scene load_steps=7 format=3 uid="uid://v30ilrrghva1"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_8n6hf"]
 [ext_resource type="PackedScene" uid="uid://dujgkqlppnd1d" path="res://scenes/temp_terrain.tscn" id="1_k1u6s"]
+[ext_resource type="PackedScene" uid="uid://cctium1kl6vc2" path="res://scenes/death_zone.tscn" id="2_qfu47"]
 [ext_resource type="PackedScene" uid="uid://dol4ikt2xc18v" path="res://scenes/player.tscn" id="2_tyjf3"]
 [ext_resource type="PackedScene" uid="uid://ce5q1qa0j4hhh" path="res://scenes/edit_area.tscn" id="4_lfd5i"]
 [ext_resource type="PackedScene" uid="uid://beebwu1e2xqof" path="res://scenes/edit_menu.tscn" id="6_ty4xn"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_8n6hf")
+
+[node name="DeathZone" parent="." instance=ExtResource("2_qfu47")]
 
 [node name="TempTerrain" parent="." instance=ExtResource("1_k1u6s")]
 visible = false
