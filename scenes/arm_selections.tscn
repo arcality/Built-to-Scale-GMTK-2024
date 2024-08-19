@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dsxfdrovrhr7m"]
+[gd_scene load_steps=3 format=3 uid="uid://dsxfdrovrhr7m"]
 
 [ext_resource type="ButtonGroup" uid="uid://b5k7yc40xf133" path="res://resources/arm_selections.tres" id="1_aav1q"]
+[ext_resource type="Script" path="res://scripts/selections/arm_selections.gd" id="1_dp82o"]
 
 [node name="arm_selections" type="Control"]
 layout_mode = 3
@@ -9,6 +10,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_dp82o")
+arm_group = ExtResource("1_aav1q")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1

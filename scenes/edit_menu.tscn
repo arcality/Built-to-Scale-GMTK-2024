@@ -1,10 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://beebwu1e2xqof"]
+[gd_scene load_steps=6 format=3 uid="uid://beebwu1e2xqof"]
 
 [ext_resource type="Script" path="res://scripts/edit_menu.gd" id="1_nxwmh"]
 [ext_resource type="PackedScene" uid="uid://dsxfdrovrhr7m" path="res://scenes/arm_selections.tscn" id="2_dcaqd"]
 [ext_resource type="PackedScene" uid="uid://dtlvgdshhakg0" path="res://scenes/jetpack_selections.tscn" id="2_xk2jv"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_gf118"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_r520c"]
+allow_unpress = true
 
 [node name="edit_menu" type="Control"]
 layout_mode = 3
@@ -60,6 +63,7 @@ layout_mode = 2
 
 [node name="arm_selections" parent="MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("2_dcaqd")]
 layout_mode = 2
+arm_group = SubResource("ButtonGroup_r520c")
 
 [node name="Seperator4" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2

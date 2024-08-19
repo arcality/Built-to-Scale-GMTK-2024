@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtlvgdshhakg0"]
+[gd_scene load_steps=3 format=3 uid="uid://dtlvgdshhakg0"]
 
 [ext_resource type="ButtonGroup" uid="uid://c05tg0pux1ifa" path="res://resources/jetpack_selections.tres" id="1_ohsls"]
+[ext_resource type="Script" path="res://scripts/selections/jetpack_selections.gd" id="1_yfafq"]
 
 [node name="jetpack_selections" type="Control"]
 layout_mode = 3
@@ -9,6 +10,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_yfafq")
+jetpack_group = ExtResource("1_ohsls")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
