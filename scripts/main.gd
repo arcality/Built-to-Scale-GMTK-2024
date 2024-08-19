@@ -18,7 +18,7 @@ var level_spawns = {1:Vector2(1200,600), 2:Vector2(200,500), 3:Vector2(200,600)}
 func _ready():
 	#$Player.position = level_spawns["LevelOne"]
 	#$Player.spawn_position = level_spawns["LevelOne"]
-	change_to_level(3)
+	change_to_level(1)
 	
 
 func _process(_delta):
