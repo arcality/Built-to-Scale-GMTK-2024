@@ -9,8 +9,8 @@
 [node name="TempTerrain" parent="." instance=ExtResource("1_k1u6s")]
 position = Vector2(298, 1249)
 
+[node name="LevelOne" parent="." instance=ExtResource("3_723ci")]
+position = Vector2(495, 302)
+
 [node name="Player" parent="." instance=ExtResource("2_tyjf3")]
 position = Vector2(663, 222)
-
-[node name="LevelOne" parent="." instance=ExtResource("3_723ci")]
-position = Vector2(616, 454)

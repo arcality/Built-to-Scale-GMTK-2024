@@ -1,9 +1,9 @@
 [gd_scene load_steps=4 format=3 uid="uid://3aqhs86jpg2f"]
 
-[ext_resource type="Texture2D" uid="uid://dk2t553l7o387" path="res://blocks.png" id="1_kochm"]
+[ext_resource type="Texture2D" uid="uid://dk2t553l7o387" path="res://assets/sprites/tiles/blocks.png" id="1_3m6u0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w7khm"]
-texture = ExtResource("1_kochm")
+texture = ExtResource("1_3m6u0")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -53,6 +53,7 @@ sources/0 = SubResource("TileSetAtlasSource_w7khm")
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
+scale = Vector2(4.25, 4.25)
 tile_set = SubResource("TileSet_hkyxn")
 format = 2
 layer_0/tile_data = PackedInt32Array(0, 0, 1, 1, 0, 1, 2, 0, 1, 3, 0, 1, 4, 0, 1, 5, 0, 1, 6, 0, 1, 7, 0, 1, 8, 0, 1, -65536, 0, 1, -131072, 0, 1)
