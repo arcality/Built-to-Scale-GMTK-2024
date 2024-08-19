@@ -8,7 +8,7 @@ var in_edit_bounds = false
 
 var levels = {1:preload("res://scenes/levels/level_one.tscn").instantiate(),
 2:preload("res://scenes/levels/level_two.tscn").instantiate()}
-var level_spawns = {1:Vector2(1200,600), 2:Vector2(200,400)}
+var level_spawns = {1:Vector2(1200,600), 2:Vector2(200,500)}
 
 #var game = preload("res://scenes/levels/level_one.tscn").instantiate()
 
