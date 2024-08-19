@@ -1,8 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://dol4ikt2xc18v"]
+[gd_scene load_steps=27 format=3 uid="uid://dol4ikt2xc18v"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_vscu2"]
 [ext_resource type="Script" path="res://scripts/state-machine/FiniteStateMachine.gd" id="2_51co4"]
 [ext_resource type="Texture2D" uid="uid://bxo4s0j7t03x0" path="res://assets/sprites/player/robot-Idle.png" id="2_hyccr"]
+[ext_resource type="Script" path="res://scripts/hurtbox.gd" id="2_p74e7"]
 [ext_resource type="Texture2D" uid="uid://b528mqj26t1nn" path="res://assets/sprites/player/robot-Running.png" id="3_s2yyi"]
 [ext_resource type="Script" path="res://scripts/state-machine/idle.gd" id="4_oixml"]
 [ext_resource type="Script" path="res://scripts/state-machine/running.gd" id="5_4wmna"]
@@ -14,6 +15,9 @@
 [ext_resource type="Script" path="res://scripts/state-machine/climbing.gd" id="11_ovs1m"]
 [ext_resource type="Script" path="res://scripts/state-machine/umbrellaing.gd" id="12_4wbyi"]
 [ext_resource type="Script" path="res://scripts/state-machine/death.gd" id="13_u5nog"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jh4is"]
+size = Vector2(28, 51)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bn55i"]
 size = Vector2(40, 72.8571)
@@ -92,6 +96,14 @@ script = ExtResource("1_vscu2")
 active_jetpack_state = "umbrellaing"
 active_arm_state = "walljumping"
 
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_mask = 4
+script = ExtResource("2_p74e7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, 7.5)
+shape = SubResource("RectangleShape2D_jh4is")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 7.5)
 scale = Vector2(0.7, 0.7)
@@ -152,4 +164,5 @@ position = Vector2(-16, 8)
 target_position = Vector2(-26, 0)
 hit_from_inside = true
 
+[connection signal="body_entered" from="Hurtbox" to="Hurtbox" method="_on_body_entered"]
 [connection signal="timeout" from="FiniteStateMachine/Dashing/Timer" to="FiniteStateMachine/Dashing" method="_on_timer_timeout"]
