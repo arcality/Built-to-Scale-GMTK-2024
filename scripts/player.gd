@@ -13,6 +13,8 @@ var clinging_direction := 0.0
 var climb_coyote_time := 0.0
 var jump_buffer := 0.0
 
+@onready var player_sprite = $AnimatedSprite2D
+
 var target_velocity : float
 var acceleration_amount: float
 var deceleration_amount: float
@@ -61,6 +63,18 @@ func _process(delta):
 	# input (mainly for dashing)
 	if horizontal_movement_direction() != 0:
 		facing_direction = horizontal_movement_direction()
+	
+	# Flip the sprite
+	if facing_direction > 0:
+		player_sprite.flip_h = false
+	elif facing_direction < 0:
+		player_sprite.flip_h = true
+	
+	# play sprite animations
+	if horizontal_movement_direction() == 0:
+		player_sprite.play("idle")
+	else:
+		player_sprite.play("run")
 	
 	# if current velocity is to the right
 	if velocity.x > 0:
