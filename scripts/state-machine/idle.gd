@@ -26,10 +26,14 @@ func Update(_delta):
 		state_transition.emit(self, "running")
 		print("transition to running")
 		if Input.is_action_just_pressed("jump") and player.is_on_floor():
-			player.velocity.y = player.jump_strength
+			#if player.is_on_floor() and player.active_arm_state == "jumpboosting":
+				#player.velocity.y = player.jump_strength * 1.7
+			#else:
+				#player.velocity.y = player.jump_strength
+			force_transition.emit("jumping")
 			print("jump while running safeguard")
 	
-	if Input.is_action_just_pressed("jump") and player.is_on_floor():
+	if (Input.is_action_just_pressed("jump") or player.jump_buffer > 0.0) and player.is_on_floor():
 		state_transition.emit(self, "jumping")
 		print("transition to jumping from idle")
 	

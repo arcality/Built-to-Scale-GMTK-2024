@@ -6,7 +6,10 @@ var player : Player
 
 func Enter():
 	player = owner
-	player.velocity.y = player.jump_strength
+	if player.is_on_floor() and player.active_arm_state == "jumpboosting":
+		player.velocity.y = player.jump_strength * 1.7
+	else:
+		player.velocity.y = player.jump_strength
 	
 func Update(delta:float):
 	state_transition.emit(self, "falling")

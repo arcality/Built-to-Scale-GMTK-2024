@@ -2,6 +2,7 @@ extends Node
 class_name State
 
 signal state_transition
+signal force_transition
 
 func Enter():
 	pass

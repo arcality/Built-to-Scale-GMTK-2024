@@ -8,6 +8,9 @@ var special_jump_used := false
 var facing_direction := 1.0 # for dashing
 var clinging_direction := 0.0
 
+var climb_coyote_time := 0.0
+var jump_buffer := 0.0
+
 
 var target_velocity : float
 var acceleration_amount: float
@@ -21,7 +24,7 @@ var deceleration_amount: float
 # being used to keep track of arms
 #
 # will eventually have "climbing" "walljumping"
-# and (maybe) "jumping" for jump boosting arms (that won't be connected to a 
+# and "jumpboosting" for jump boosting arms (that won't be connected to a 
 # script though)
 
 # DISREGARD THIS
@@ -84,6 +87,14 @@ func _process(delta):
 	
 	#print(gravity)
 	#print(clinging_direction)
+	#if climb_coyote_time > 0.0:
+		#print(climb_coyote_time)
+		
+	if jump_buffer > 0.0:
+		print(jump_buffer)
+	
+	climb_coyote_time -=0.01
+	jump_buffer -= 0.01
 	
 	move_and_slide()
 

@@ -18,7 +18,7 @@ size = Vector2(128, 128)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_vscu2")
-active_jetpack_state = "umbrellaing"
+active_jetpack_state = "jumping"
 active_arm_state = "walljumping"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -66,12 +66,12 @@ script = ExtResource("12_4wbyi")
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 position = Vector2(46, 0)
-target_position = Vector2(16, 0)
+target_position = Vector2(26, 0)
 hit_from_inside = true
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 position = Vector2(-46, 0)
-target_position = Vector2(-16, 0)
+target_position = Vector2(-26, 0)
 hit_from_inside = true
 
 [connection signal="timeout" from="FiniteStateMachine/Dashing/Timer" to="FiniteStateMachine/Dashing" method="_on_timer_timeout"]
