@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dujgkqlppnd1d"]
 
-[ext_resource type="Texture2D" uid="uid://csjndqq7tdjkm" path="res://icon.svg" id="1_tj54d"]
+[ext_resource type="Texture2D" uid="uid://csjndqq7tdjkm" path="res://assets/sprites/icon.svg" id="1_op3sm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bn3ju"]
 size = Vector2(365, 19)
@@ -21,12 +21,12 @@ shape = SubResource("RectangleShape2D_ervrn")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(100, -162)
 scale = Vector2(0.15625, 2.53125)
-texture = ExtResource("1_tj54d")
+texture = ExtResource("1_op3sm")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(-72.4999, 9.5)
 scale = Vector2(2.85156, 0.148437)
-texture = ExtResource("1_tj54d")
+texture = ExtResource("1_op3sm")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
 position = Vector2(-262, -33)
@@ -35,7 +35,7 @@ shape = SubResource("RectangleShape2D_ervrn")
 [node name="Sprite2D3" type="Sprite2D" parent="."]
 position = Vector2(-262, -97.4998)
 scale = Vector2(0.15625, 1.52344)
-texture = ExtResource("1_tj54d")
+texture = ExtResource("1_op3sm")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
 position = Vector2(-455.5, -188.5)
@@ -44,7 +44,7 @@ shape = SubResource("RectangleShape2D_bn3ju")
 [node name="Sprite2D4" type="Sprite2D" parent="."]
 position = Vector2(-455.5, -188.5)
 scale = Vector2(2.85156, 0.148437)
-texture = ExtResource("1_tj54d")
+texture = ExtResource("1_op3sm")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
 position = Vector2(-648, -339)
@@ -53,4 +53,4 @@ shape = SubResource("RectangleShape2D_ervrn")
 [node name="Sprite2D5" type="Sprite2D" parent="."]
 position = Vector2(-648, -339)
 scale = Vector2(0.15625, 2.53125)
-texture = ExtResource("1_tj54d")
+texture = ExtResource("1_op3sm")
