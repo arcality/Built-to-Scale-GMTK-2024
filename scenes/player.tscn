@@ -97,6 +97,7 @@ active_jetpack_state = "umbrellaing"
 active_arm_state = "walljumping"
 
 [node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
 collision_mask = 4
 script = ExtResource("2_p74e7")
 

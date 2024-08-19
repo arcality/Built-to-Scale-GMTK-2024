@@ -39,7 +39,7 @@ func Update(delta:float):
 		player.deceleration_amount = 200
 	
 	# checks if the player is touching a wall and falling down
-	if player.is_on_wall() and player.velocity.y > 0:
+	if player.is_on_wall() and player.velocity.y > 0 and player.active_arm_state != "jumpboosting":
 		if Input.is_action_pressed("move_right") and $"../../RayCastRight".is_colliding():
 			state_transition.emit(self, "clinging")
 			print("transition to clinging")
