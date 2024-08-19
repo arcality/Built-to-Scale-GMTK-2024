@@ -18,6 +18,7 @@ texture = ExtResource("1_mq361")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_1/angular_velocity = 0.0
 1:0/0 = 0
@@ -25,21 +26,25 @@ texture = ExtResource("1_mq361")
 1:0/0/physics_layer_0/angular_velocity = 0.0
 1:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_1/angular_velocity = 0.0
+1:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, 5, 8, 5, 8, 8, -8, 8)
 2:0/0 = 0
 2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:0/0/physics_layer_0/angular_velocity = 0.0
 2:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 2:0/0/physics_layer_1/angular_velocity = 0.0
+2:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-5, -8, -5, 8, -8, 8, -8, -8)
 3:0/0 = 0
 3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:0/0/physics_layer_0/angular_velocity = 0.0
 3:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 3:0/0/physics_layer_1/angular_velocity = 0.0
+3:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(8, -5, -8, -5, -8, -8, 8, -8)
 4:0/0 = 0
 4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:0/0/physics_layer_0/angular_velocity = 0.0
 4:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 4:0/0/physics_layer_1/angular_velocity = 0.0
+4:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(5, 8, 5, -8, 8, -8, 8, 8)
 
 [sub_resource type="TileSet" id="TileSet_f3q0e"]
 physics_layer_0/collision_layer = 1
@@ -51,6 +56,7 @@ sources/0 = SubResource("TileSetAtlasSource_4wm1c")
 [node name="LevelOne" type="Node2D"]
 
 [node name="CollisionTiles" type="TileMap" parent="."]
+visible = false
 texture_filter = 1
 scale = Vector2(4.25, 4.25)
 tile_set = SubResource("TileSet_qwmim")
@@ -61,4 +67,4 @@ layer_0/tile_data = PackedInt32Array(0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0
 scale = Vector2(4.25, 4.25)
 tile_set = SubResource("TileSet_f3q0e")
 format = 2
-layer_0/tile_data = PackedInt32Array(-65536, 131072, 0, -131072, 131072, 0, -196608, 131072, 0, -262144, 131072, 0)
+layer_0/tile_data = PackedInt32Array(131070, 0, 0, 196606, 0, 0, 262142, 0, 0, 131071, 131072, 0, 196607, 131072, 0, 262143, 131072, 0, 131064, 0, 0, 131065, 0, 0, 131066, 0, 0, 131067, 0, 0, 131068, 0, 0, 131069, 0, 0, 327678, 0, 0, 393214, 0, 0, 327679, 131072, 0, 393215, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0)
