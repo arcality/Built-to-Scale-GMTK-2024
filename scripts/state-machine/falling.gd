@@ -50,12 +50,12 @@ func Update(delta:float):
 			print("transition to clinging")
 			player.clinging_direction = -1.0
 			
-		if Input.is_action_just_pressed("jump") or player.jump_buffer > 0.0:
+		if (Input.is_action_just_pressed("jump") or player.jump_buffer > 0.0) and player.active_arm_state == "walljumping":
 			force_transition.emit("walljumping")
 			print("force wall jumping")
 			
 	if player.is_on_wall() and player.horizontal_movement_direction() != 0.0:
-		if Input.is_action_just_pressed("jump") or player.jump_buffer > 0.0:
+		if (Input.is_action_just_pressed("jump") or player.jump_buffer > 0.0) and player.active_arm_state == "walljumping":
 				force_transition.emit("walljumping")
 				print("force wall jumping")
 	
