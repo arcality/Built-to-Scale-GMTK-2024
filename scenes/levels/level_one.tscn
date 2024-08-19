@@ -1,18 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://3aqhs86jpg2f"]
+[gd_scene load_steps=4 format=3 uid="uid://3aqhs86jpg2f"]
 
 [ext_resource type="Texture2D" uid="uid://cb4t5goaijmin" path="res://assets/sprites/tiles/gmtk2024tilesheet.png" id="1_mq361"]
-[ext_resource type="Script" path="res://scripts/level_one.gd" id="1_xwfqw"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bjjpa"]
-texture = ExtResource("1_mq361")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_qwmim"]
-sources/0 = SubResource("TileSetAtlasSource_bjjpa")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4wm1c"]
 texture = ExtResource("1_mq361")
@@ -100,15 +88,6 @@ sources/0 = SubResource("TileSetAtlasSource_4wm1c")
 
 [node name="LevelOne" type="Node2D"]
 position = Vector2(544, 272)
-script = ExtResource("1_xwfqw")
-
-[node name="CollisionTiles" type="TileMap" parent="."]
-visible = false
-texture_filter = 1
-scale = Vector2(4.25, 4.25)
-tile_set = SubResource("TileSet_qwmim")
-format = 2
-layer_0/tile_data = PackedInt32Array(0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 65535, 0, 0, -1, 0, 0, -65537, 0, 0, -131073, 0, 0, -196609, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, -196614, 0, 0, -196613, 0, 0, -196612, 0, 0, -196611, 0, 0, -196610, 0, 0)
 
 [node name="LevelTiles" type="TileMap" parent="."]
 scale = Vector2(4.25, 4.25)
