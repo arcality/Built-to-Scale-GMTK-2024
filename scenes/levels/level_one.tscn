@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://3aqhs86jpg2f"]
+[gd_scene load_steps=7 format=3 uid="uid://3aqhs86jpg2f"]
 
 [ext_resource type="Texture2D" uid="uid://cb4t5goaijmin" path="res://assets/sprites/tiles/gmtk2024tilesheet.png" id="1_mq361"]
+[ext_resource type="Script" path="res://scripts/level_one.gd" id="1_xwfqw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bjjpa"]
 texture = ExtResource("1_mq361")
@@ -98,6 +99,7 @@ physics_layer_1/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_4wm1c")
 
 [node name="LevelOne" type="Node2D"]
+script = ExtResource("1_xwfqw")
 
 [node name="CollisionTiles" type="TileMap" parent="."]
 visible = false
