@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dol4ikt2xc18v"]
+[gd_scene load_steps=15 format=3 uid="uid://dol4ikt2xc18v"]
 
 [ext_resource type="Texture2D" uid="uid://csjndqq7tdjkm" path="res://icon.svg" id="1_adi12"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_vscu2"]
@@ -11,7 +11,8 @@
 [ext_resource type="Script" path="res://scripts/state-machine/clinging.gd" id="9_k8hsb"]
 [ext_resource type="Script" path="res://scripts/state-machine/walljumping.gd" id="10_vcfsn"]
 [ext_resource type="Script" path="res://scripts/state-machine/climbing.gd" id="11_ovs1m"]
-[ext_resource type="Script" path="res://scenes/umbrellaing.gd" id="12_4wbyi"]
+[ext_resource type="Script" path="res://scripts/state-machine/umbrellaing.gd" id="12_4wbyi"]
+[ext_resource type="Script" path="res://scripts/state-machine/death.gd" id="13_u5nog"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bn55i"]
 size = Vector2(128, 128)
@@ -63,6 +64,9 @@ script = ExtResource("11_ovs1m")
 
 [node name="Umbrellaing" type="Node" parent="FiniteStateMachine"]
 script = ExtResource("12_4wbyi")
+
+[node name="Death" type="Node" parent="FiniteStateMachine"]
+script = ExtResource("13_u5nog")
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 position = Vector2(46, 0)
