@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dol4ikt2xc18v"]
+[gd_scene load_steps=25 format=3 uid="uid://dol4ikt2xc18v"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_vscu2"]
 [ext_resource type="Script" path="res://scripts/state-machine/FiniteStateMachine.gd" id="2_51co4"]
