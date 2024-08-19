@@ -6,7 +6,7 @@ extends Node
 var editing = false
 var in_edit_bounds = false
 
-var level_spawns = {"LevelOne":Vector2(1000,500)}
+var level_spawns = {"LevelOne":Vector2(1200,600)}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

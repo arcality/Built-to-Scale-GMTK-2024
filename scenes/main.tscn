@@ -23,7 +23,7 @@ active_jetpack_state = ""
 active_arm_state = ""
 
 [node name="edit_area" parent="." instance=ExtResource("4_lfd5i")]
-position = Vector2(947, 476)
+position = Vector2(1141, 613)
 
 [node name="edit_menu" parent="." instance=ExtResource("6_ty4xn")]
 
