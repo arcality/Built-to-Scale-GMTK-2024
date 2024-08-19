@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Player # so that autocompletion partially works
 
+var spawn_position : Vector2
+
 var gravity := 2000.0
 var speed := 20000.0
 var jump_strength := -600.0
@@ -24,9 +26,8 @@ var deceleration_amount: float
 # doesn't quite have same functionality as active_jetpack_state, but is still
 # being used to keep track of arms
 #
-# will eventually have "climbing" "walljumping"
-# and "jumpboosting" for jump boosting arms (that won't be connected to a 
-# script though)
+# can be "climbing" "walljumping" or (not on a script) "jumpboosting" 
+# 
 
 # DISREGARD THIS
 # maybe i can signal from the states to here, and determine which action to switch to
