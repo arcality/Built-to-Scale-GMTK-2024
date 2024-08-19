@@ -48,7 +48,7 @@ func Update(_delta:float):
 	
 	if (Input.is_action_just_pressed("jump") or player.jump_buffer > 0.0) and player.active_arm_state == "walljumping":
 		state_transition.emit(self, "walljumping")
-		print("transition to walljumping")
+		print("transition to walljumping from cling")
 		
 	
 	

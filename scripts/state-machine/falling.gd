@@ -25,6 +25,9 @@ func Update(delta:float):
 	if player.is_on_floor():
 		state_transition.emit(self, "idle")
 		print("transition to idle")
+		if Input.is_action_just_pressed("jump"):
+			force_transition.emit("jumping")
+			print("force jumping")
 		
 	if player.velocity.y < 0: # going up
 		player.gravity = 2000
@@ -41,13 +44,20 @@ func Update(delta:float):
 			state_transition.emit(self, "clinging")
 			print("transition to clinging")
 			player.clinging_direction = 1.0
+				
 		if Input.is_action_pressed("move_left") and $"../../RayCastLeft".is_colliding():
 			state_transition.emit(self, "clinging")
 			print("transition to clinging")
 			player.clinging_direction = -1.0
-		if Input.is_action_just_pressed("jump"):
+			
+		if Input.is_action_just_pressed("jump") or player.jump_buffer > 0.0:
 			force_transition.emit("walljumping")
 			print("force wall jumping")
+			
+	if player.is_on_wall() and player.horizontal_movement_direction() != 0.0:
+		if Input.is_action_just_pressed("jump") or player.jump_buffer > 0.0:
+				force_transition.emit("walljumping")
+				print("force wall jumping")
 	
 	# checks for climbing coyote time before using up special jump
 	if player.climb_coyote_time > 0.0 and Input.is_action_just_pressed("jump") and player.active_arm_state == "walljumping":
@@ -57,7 +67,8 @@ func Update(delta:float):
 		player.special_jump_used = true
 		state_transition.emit(self, player.active_jetpack_state)
 		print("transition to special jump from falling")
-	elif Input.is_action_just_pressed("jump") and !player.is_on_floor() and !player.is_on_wall():
+	
+	if Input.is_action_just_pressed("jump") and !player.is_on_floor() and !player.is_on_wall():
 		player.jump_buffer = 0.06
 		
 	
