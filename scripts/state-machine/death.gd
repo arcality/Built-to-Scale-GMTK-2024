@@ -3,12 +3,13 @@ extends State
 var player : Player
 
 func Enter():
-	pass
+	player = owner
 	
 
 
 func Update(_delta:float):
-	pass
+	player.position = player.spawn_position
+	state_transition.emit(self, "idle")
 	
 
 

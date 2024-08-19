@@ -11,10 +11,11 @@
 script = ExtResource("1_8n6hf")
 
 [node name="TempTerrain" parent="." instance=ExtResource("1_k1u6s")]
+visible = false
 position = Vector2(298, 1249)
 
 [node name="LevelOne" parent="." instance=ExtResource("3_723ci")]
-position = Vector2(495, 302)
+position = Vector2(538, 274)
 
 [node name="Player" parent="." instance=ExtResource("2_tyjf3")]
 position = Vector2(663, 222)

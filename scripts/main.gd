@@ -6,6 +6,13 @@ extends Node
 var editing = false
 var in_edit_bounds = false
 
+var level_spawns = {"LevelOne":Vector2(1000,500)}
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$Player.position = level_spawns["LevelOne"]
+	$Player.spawn_position = level_spawns["LevelOne"]
+
 func _process(_delta):
 		# if edit key is pressed while in this area, enter editing menu
 	if Input.is_action_just_pressed("edit") and in_edit_bounds:
