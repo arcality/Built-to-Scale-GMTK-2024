@@ -6,12 +6,18 @@ extends Node
 var editing = false
 var in_edit_bounds = false
 
+var levels = {"LevelOne":preload("res://scenes/levels/level_one.tscn").instantiate()}
 var level_spawns = {"LevelOne":Vector2(1200,600)}
+
+#var game = preload("res://scenes/levels/level_one.tscn").instantiate()
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Player.position = level_spawns["LevelOne"]
-	$Player.spawn_position = level_spawns["LevelOne"]
+	#$Player.position = level_spawns["LevelOne"]
+	#$Player.spawn_position = level_spawns["LevelOne"]
+	change_to_level("LevelOne")
+	
 
 func _process(_delta):
 		# if edit key is pressed while in this area, enter editing menu
@@ -28,6 +34,12 @@ func editMenu():
 	
 	editing = !editing
 
+func change_to_level(level:String):
+	$Player.position = level_spawns[level]
+	$Player.spawn_position = level_spawns[level]
+	$edit_area.position = level_spawns[level]
+	get_tree().get_root().add_child(levels[level])
+	
 
 # is player in bounds?
 func _on_edit_area_player_entered(_body):
