@@ -99,6 +99,7 @@ physics_layer_1/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_4wm1c")
 
 [node name="LevelOne" type="Node2D"]
+position = Vector2(544, 272)
 script = ExtResource("1_xwfqw")
 
 [node name="CollisionTiles" type="TileMap" parent="."]
