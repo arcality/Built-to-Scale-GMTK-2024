@@ -35,15 +35,18 @@ func Update(_delta:float):
 		#player.velocity.y = 0
 		
 	if player.horizontal_movement_direction() != player.clinging_direction:
-		player.climb_coyote_time = 0.1
+		player.climb_coyote_time = 0.08
 		state_transition.emit(self, "falling")
 		print("transition to falling")
+		if Input.is_action_just_pressed("jump") and player.active_arm_state == "walljumping":
+			force_transition.emit("walljumping")
+			print("force to walljumping")
 	
 	if player.vertical_movement_direction() != 0 and player.active_arm_state == "climbing":
 		state_transition.emit(self, "climbing")
 		print("transition to climbing")
 	
-	if Input.is_action_just_pressed("jump") and player.active_arm_state == "walljumping":
+	if (Input.is_action_just_pressed("jump") or player.jump_buffer > 0.0) and player.active_arm_state == "walljumping":
 		state_transition.emit(self, "walljumping")
 		print("transition to walljumping")
 		

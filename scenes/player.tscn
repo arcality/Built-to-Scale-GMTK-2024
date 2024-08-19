@@ -66,12 +66,12 @@ script = ExtResource("12_4wbyi")
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 position = Vector2(46, 0)
-target_position = Vector2(16, 0)
+target_position = Vector2(26, 0)
 hit_from_inside = true
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 position = Vector2(-46, 0)
-target_position = Vector2(-16, 0)
+target_position = Vector2(-26, 0)
 hit_from_inside = true
 
 [connection signal="timeout" from="FiniteStateMachine/Dashing/Timer" to="FiniteStateMachine/Dashing" method="_on_timer_timeout"]

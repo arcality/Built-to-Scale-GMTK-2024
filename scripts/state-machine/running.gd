@@ -31,7 +31,7 @@ func Update(delta:float):
 		state_transition.emit(self, "idle")
 		print("transition to idle")
 	
-	if Input.is_action_just_pressed("jump") and player.is_on_floor():
+	if (Input.is_action_just_pressed("jump") or player.jump_buffer > 0.0) and player.is_on_floor():
 		state_transition.emit(self, "jumping")
 		print("transition to jumping")
 		

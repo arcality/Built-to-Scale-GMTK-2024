@@ -9,6 +9,7 @@ var facing_direction := 1.0 # for dashing
 var clinging_direction := 0.0
 
 var climb_coyote_time := 0.0
+var jump_buffer := 0.0
 
 
 var target_velocity : float
@@ -86,10 +87,14 @@ func _process(delta):
 	
 	#print(gravity)
 	#print(clinging_direction)
-	if climb_coyote_time > 0.0:
-		print(climb_coyote_time)
+	#if climb_coyote_time > 0.0:
+		#print(climb_coyote_time)
+		
+	if jump_buffer > 0.0:
+		print(jump_buffer)
 	
 	climb_coyote_time -=0.01
+	jump_buffer -= 0.01
 	
 	move_and_slide()
 

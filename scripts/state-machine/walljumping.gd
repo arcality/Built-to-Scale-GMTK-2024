@@ -9,6 +9,8 @@ func Enter():
 		player.velocity.x = -2000
 	elif $"../../RayCastLeft".is_colliding():
 		player.velocity.x = 2000
+	else:
+		print("too far away")
 		
 	
 func Update(delta:float):
