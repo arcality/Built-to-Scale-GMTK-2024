@@ -38,7 +38,8 @@ func change_to_level(level:String):
 	$Player.position = level_spawns[level]
 	$Player.spawn_position = level_spawns[level]
 	$edit_area.position = level_spawns[level]
-	get_tree().get_root().add_child(levels[level])
+	add_child(levels[level])
+	move_child(levels[level], 0)
 	
 
 # is player in bounds?
