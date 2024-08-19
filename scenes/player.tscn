@@ -143,12 +143,12 @@ script = ExtResource("12_4wbyi")
 script = ExtResource("13_u5nog")
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
-position = Vector2(46, 0)
+position = Vector2(16, 8)
 target_position = Vector2(26, 0)
 hit_from_inside = true
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
-position = Vector2(-46, 0)
+position = Vector2(-16, 8)
 target_position = Vector2(-26, 0)
 hit_from_inside = true
 
