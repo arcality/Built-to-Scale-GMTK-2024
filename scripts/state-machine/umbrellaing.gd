@@ -2,7 +2,7 @@ extends State
 
 var player: Player
 
-const FLOAT_SPEED = 7500
+const FLOAT_SPEED = 8000
 
 func Enter():
 	player = owner

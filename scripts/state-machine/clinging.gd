@@ -11,10 +11,10 @@ func Enter():
 	# reset doublejump
 	player.special_jump_used = false
 	
-	if player.active_arm_state == "climbing":
-		# stops falling
-		player.gravity = 0
-		player.velocity.y = 0
+	#if player.active_arm_state == "climbing":
+	# stops falling
+	player.gravity = 0
+	player.velocity.y = 0
 
 func Exit():
 	# re-enables falling
