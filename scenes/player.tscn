@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://dol4ikt2xc18v"]
+[gd_scene load_steps=24 format=3 uid="uid://dol4ikt2xc18v"]
 
-[ext_resource type="Texture2D" uid="uid://csjndqq7tdjkm" path="res://icon.svg" id="1_adi12"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_vscu2"]
 [ext_resource type="Script" path="res://scripts/state-machine/FiniteStateMachine.gd" id="2_51co4"]
+[ext_resource type="Texture2D" uid="uid://bxo4s0j7t03x0" path="res://assets/sprites/player/robot-Idle.png" id="2_hyccr"]
+[ext_resource type="Texture2D" uid="uid://b528mqj26t1nn" path="res://assets/sprites/player/robot-Running.png" id="3_s2yyi"]
 [ext_resource type="Script" path="res://scripts/state-machine/idle.gd" id="4_oixml"]
 [ext_resource type="Script" path="res://scripts/state-machine/running.gd" id="5_4wmna"]
 [ext_resource type="Script" path="res://scripts/state-machine/jumping.gd" id="6_1pvae"]
@@ -14,7 +15,76 @@
 [ext_resource type="Script" path="res://scenes/umbrellaing.gd" id="12_4wbyi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bn55i"]
-size = Vector2(128, 128)
+size = Vector2(40, 72.8571)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4148i"]
+atlas = ExtResource("2_hyccr")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhx1a"]
+atlas = ExtResource("2_hyccr")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qc4ao"]
+atlas = ExtResource("3_s2yyi")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhgm0"]
+atlas = ExtResource("3_s2yyi")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_id0vg"]
+atlas = ExtResource("3_s2yyi")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewfxu"]
+atlas = ExtResource("3_s2yyi")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yq01"]
+atlas = ExtResource("3_s2yyi")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c82bi"]
+atlas = ExtResource("3_s2yyi")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_io8bg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4148i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhx1a")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qc4ao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhgm0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_id0vg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewfxu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4yq01")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c82bi")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_vscu2")
@@ -22,12 +92,16 @@ active_jetpack_state = "jumping"
 active_arm_state = "walljumping"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7.5)
 scale = Vector2(0.7, 0.7)
 shape = SubResource("RectangleShape2D_bn55i")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("1_adi12")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4.25, 4.25)
+sprite_frames = SubResource("SpriteFrames_io8bg")
+animation = &"run"
+autoplay = "idle"
+frame_progress = 0.327167
 
 [node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_51co4")
