@@ -6,8 +6,8 @@ extends Node
 var editing = false
 var in_edit_bounds = false
 
-var levels = {"LevelOne":preload("res://scenes/levels/level_one.tscn").instantiate()}
-var level_spawns = {"LevelOne":Vector2(1200,600)}
+var levels = {1:preload("res://scenes/levels/level_one.tscn").instantiate()}
+var level_spawns = {1:Vector2(1200,600)}
 
 #var game = preload("res://scenes/levels/level_one.tscn").instantiate()
 
@@ -16,7 +16,7 @@ var level_spawns = {"LevelOne":Vector2(1200,600)}
 func _ready():
 	#$Player.position = level_spawns["LevelOne"]
 	#$Player.spawn_position = level_spawns["LevelOne"]
-	change_to_level("LevelOne")
+	change_to_level(1)
 	
 
 func _process(_delta):
@@ -34,7 +34,7 @@ func editMenu():
 	
 	editing = !editing
 
-func change_to_level(level:String):
+func change_to_level(level:int):
 	$Player.position = level_spawns[level]
 	$Player.spawn_position = level_spawns[level]
 	$edit_area.position = level_spawns[level]
