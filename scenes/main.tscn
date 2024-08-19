@@ -11,7 +11,8 @@
 script = ExtResource("1_8n6hf")
 
 [node name="TempTerrain" parent="." instance=ExtResource("1_k1u6s")]
-position = Vector2(903, 895)
+visible = false
+position = Vector2(623, 1326)
 
 [node name="LevelOne" parent="." instance=ExtResource("3_723ci")]
 position = Vector2(538, 274)
@@ -22,7 +23,7 @@ active_jetpack_state = ""
 active_arm_state = ""
 
 [node name="edit_area" parent="." instance=ExtResource("4_lfd5i")]
-position = Vector2(948, 548)
+position = Vector2(947, 476)
 
 [node name="edit_menu" parent="." instance=ExtResource("6_ty4xn")]
 
