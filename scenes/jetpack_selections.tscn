@@ -22,7 +22,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="doublejumping" type="CheckBox" parent="HBoxContainer"]
+[node name="jumping" type="CheckBox" parent="HBoxContainer"]
 layout_mode = 2
 button_group = ExtResource("1_ohsls")
 text = "Double Jump"
