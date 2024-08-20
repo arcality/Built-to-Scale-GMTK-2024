@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://v30ilrrghva1"]
+[gd_scene load_steps=8 format=3 uid="uid://v30ilrrghva1"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_8n6hf"]
 [ext_resource type="PackedScene" uid="uid://dujgkqlppnd1d" path="res://scenes/temp_terrain.tscn" id="1_k1u6s"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dol4ikt2xc18v" path="res://scenes/player.tscn" id="2_tyjf3"]
 [ext_resource type="PackedScene" uid="uid://ce5q1qa0j4hhh" path="res://scenes/edit_area.tscn" id="4_lfd5i"]
 [ext_resource type="PackedScene" uid="uid://beebwu1e2xqof" path="res://scenes/edit_menu.tscn" id="6_ty4xn"]
+[ext_resource type="PackedScene" uid="uid://cg0mkxdhte8o1" path="res://scenes/level_exit.tscn" id="7_6wq60"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_8n6hf")
@@ -26,7 +27,11 @@ position = Vector2(1141, 613)
 
 [node name="edit_menu" parent="." instance=ExtResource("6_ty4xn")]
 
+[node name="Exit" parent="." instance=ExtResource("7_6wq60")]
+position = Vector2(1134, 186)
+
 [connection signal="player_entered" from="edit_area" to="." method="_on_edit_area_player_entered"]
 [connection signal="player_exited" from="edit_area" to="." method="_on_edit_area_player_exited"]
 [connection signal="arm_selected" from="edit_menu" to="Player" method="_on_edit_menu_arm_selected"]
 [connection signal="jetpack_selected" from="edit_menu" to="Player" method="_on_edit_menu_jetpack_selected"]
+[connection signal="body_entered" from="Exit" to="." method="_on_level_exit_body_entered"]
