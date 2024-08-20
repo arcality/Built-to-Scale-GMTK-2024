@@ -13,7 +13,8 @@ var clinging_direction := 0.0
 var climb_coyote_time := 0.0
 var jump_buffer := 0.0
 
-@onready var player_sprite = $AnimatedSprite2D
+@onready var composite_sprites = $CompositeSprites
+@onready var robot = $CompositeSprites/Robot
 
 var target_velocity : float
 var acceleration_amount: float
@@ -68,21 +69,21 @@ func _process(delta):
 	
 	# Flip the sprite
 	if facing_direction > 0:
-		player_sprite.flip_h = false
+		robot.flip_h = false
 	elif facing_direction < 0:
-		player_sprite.flip_h = true
+		robot.flip_h = true
 	
 	# play sprite animations
 	#if horizontal_movement_direction() == 0:
-		#player_sprite.play("idle")
+		#robot.play("idle")
 	#else:
-		#player_sprite.play("running")
+		#robot.play("running")
 	
-	if $FiniteStateMachine.current_state.name.to_lower() in player_sprite.sprite_frames.get_animation_names():
+	if $FiniteStateMachine.current_state.name.to_lower() in robot.sprite_frames.get_animation_names():
 		#print($FiniteStateMachine.current_state.name.to_lower())
-		player_sprite.play($FiniteStateMachine.current_state.name.to_lower())
+		robot.play($FiniteStateMachine.current_state.name.to_lower())
 	else:
-		player_sprite.play("idle")
+		robot.play("idle")
 	
 	# if current velocity is to the right
 	if velocity.x > 0:
