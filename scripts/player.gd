@@ -79,7 +79,7 @@ func _process(delta):
 		#player_sprite.play("running")
 	
 	if $FiniteStateMachine.current_state.name.to_lower() in player_sprite.sprite_frames.get_animation_names():
-		print($FiniteStateMachine.current_state.name.to_lower())
+		#print($FiniteStateMachine.current_state.name.to_lower())
 		player_sprite.play($FiniteStateMachine.current_state.name.to_lower())
 	else:
 		player_sprite.play("idle")

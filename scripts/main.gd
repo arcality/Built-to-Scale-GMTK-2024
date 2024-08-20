@@ -17,6 +17,8 @@ var level_spawns = {1:Vector2(200,500),
 4:Vector2(200,500),
 5:Vector2(200,600)}
 
+var level = 1
+
 #var game = preload("res://scenes/levels/level_one.tscn").instantiate()
 
 
@@ -24,7 +26,7 @@ var level_spawns = {1:Vector2(200,500),
 func _ready():
 	#$Player.position = level_spawns["LevelOne"]
 	#$Player.spawn_position = level_spawns["LevelOne"]
-	change_to_level(4)
+	change_to_level(level)
 	
 
 func _process(_delta):
@@ -42,12 +44,17 @@ func editMenu():
 	
 	editing = !editing
 
-func change_to_level(level:int):
-	$Player.position = level_spawns[level]
-	$Player.spawn_position = level_spawns[level]
-	$edit_area.position = level_spawns[level]
-	add_child(levels[level])
-	move_child(levels[level], 0)
+func change_to_level(new_level:int):
+	var level = new_level
+	for i in get_children():
+		if i.name.to_lower().contains("level"):
+			remove_child(i)
+	add_child(levels[new_level])
+	move_child(levels[new_level], 0)
+	$Player.position = level_spawns[new_level]
+	$Player.spawn_position = level_spawns[new_level]
+	$edit_area.position = level_spawns[new_level]
+	
 	
 
 # is player in bounds?
@@ -57,3 +64,7 @@ func _on_edit_area_player_entered(_body):
 # is player out of bounds?
 func _on_edit_area_player_exited(_body):
 	in_edit_bounds = false
+
+
+func _on_level_exit_body_entered(body):
+	change_to_level(level + 1)
