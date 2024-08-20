@@ -1,4 +1,4 @@
-[gd_scene load_steps=340 format=3 uid="uid://dol4ikt2xc18v"]
+[gd_scene load_steps=338 format=3 uid="uid://dol4ikt2xc18v"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_vscu2"]
 [ext_resource type="Texture2D" uid="uid://bb4re7nqdr1us" path="res://assets/sprites/player/animations/wall-jump-dashing.png" id="2_6ngew"]
@@ -234,7 +234,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"climbing",
-"speed": 5.0
+"speed": 22.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -318,7 +318,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"running",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -376,22 +376,6 @@ region = Rect2(144, 0, 16, 16)
 atlas = ExtResource("2_pbv13")
 region = Rect2(160, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_br3jr"]
-atlas = ExtResource("3_foudp")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dvl44"]
-atlas = ExtResource("3_foudp")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rn48b"]
-atlas = ExtResource("3_foudp")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qjlxe"]
-atlas = ExtResource("3_foudp")
-region = Rect2(48, 0, 16, 16)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_jc40b"]
 atlas = ExtResource("4_fpm73")
 region = Rect2(0, 0, 16, 16)
@@ -411,6 +395,14 @@ region = Rect2(0, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ylj3b"]
 atlas = ExtResource("6_lslaq")
 region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvl44"]
+atlas = ExtResource("3_foudp")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjlxe"]
+atlas = ExtResource("3_foudp")
+region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vcu3m"]
 atlas = ExtResource("7_cgy37")
@@ -494,24 +486,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"climbing",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_br3jr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dvl44")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rn48b")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qjlxe")
-}],
-"loop": true,
-"name": &"double-jumping",
-"speed": 8.0
+"speed": 22.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -545,6 +520,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_dvl44")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjlxe")
+}],
+"loop": true,
+"name": &"jumping",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_vcu3m")
 }, {
 "duration": 1.0,
@@ -554,7 +540,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_tqcvt")
 }],
 "loop": true,
-"name": &"jumping",
+"name": &"regular-jumping",
 "speed": 5.0
 }, {
 "frames": [{
@@ -578,7 +564,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"running",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -786,7 +772,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"climbing",
-"speed": 5.0
+"speed": 22.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -853,7 +839,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"running",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1134,7 +1120,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"climbing",
-"speed": 5.0
+"speed": 22.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1516,7 +1502,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"running",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1567,7 +1553,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_6vnyi")
 }],
 "loop": true,
-"name": &"wall-jumping",
+"name": &"walljumping",
 "speed": 5.0
 }]
 
@@ -1781,7 +1767,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"climbing",
-"speed": 5.0
+"speed": 22.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1871,7 +1857,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"running",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -2152,7 +2138,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"running",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -2222,19 +2208,19 @@ animation = &"climbing"
 visible = false
 scale = Vector2(4.25, 4.25)
 sprite_frames = SubResource("SpriteFrames_tmyhm")
-animation = &"double-jumping"
+animation = &"climbing"
 
 [node name="umbrellaing" type="AnimatedSprite2D" parent="CompositeSprites/Jetpacks"]
 visible = false
 position = Vector2(-1.90735e-06, -1.90735e-06)
 scale = Vector2(4.25, 4.25)
 sprite_frames = SubResource("SpriteFrames_5fb48")
-animation = &"umbrellaing"
+animation = &"climbing"
 
 [node name="Robot" type="AnimatedSprite2D" parent="CompositeSprites"]
 scale = Vector2(4.25, 4.25)
 sprite_frames = SubResource("SpriteFrames_io8bg")
-animation = &"double-jumping"
+animation = &"climbing"
 autoplay = "idle"
 
 [node name="Arms" type="Node2D" parent="CompositeSprites"]
@@ -2243,19 +2229,20 @@ autoplay = "idle"
 visible = false
 scale = Vector2(4.25, 4.25)
 sprite_frames = SubResource("SpriteFrames_7yhff")
-animation = &"umbrellaing"
+animation = &"running"
+frame_progress = 0.464646
 
 [node name="climbing" type="AnimatedSprite2D" parent="CompositeSprites/Arms"]
 visible = false
 scale = Vector2(4.25, 4.25)
 sprite_frames = SubResource("SpriteFrames_cfhdu")
-animation = &"umbrellaing"
+animation = &"climbing"
 
 [node name="jumpboosting" type="AnimatedSprite2D" parent="CompositeSprites/Arms"]
 visible = false
 scale = Vector2(4.25, 4.25)
 sprite_frames = SubResource("SpriteFrames_ovg8l")
-animation = &"umbrellaing"
+animation = &"running"
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 0

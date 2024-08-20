@@ -83,17 +83,17 @@ func _process(delta):
 			umbrellaing.visible = false
 			doublejumping.visible = false
 			dashing.visible = true
-			current_jetpack_anim = dashing
+			current_jetpack_anim = $CompositeSprites/Jetpacks/dashing
 		elif active_jetpack_state == "jumping":
 			umbrellaing.visible = false
 			doublejumping.visible = true
 			dashing.visible = false
-			current_jetpack_anim = doublejumping
+			current_jetpack_anim = $CompositeSprites/Jetpacks/jumping
 		elif active_jetpack_state == "umbrellaing":
 			umbrellaing.visible = true
 			doublejumping.visible = false
 			dashing.visible = false
-			current_jetpack_anim = umbrellaing
+			current_jetpack_anim = $CompositeSprites/Jetpacks/umbrellaing
 		print(" ------ " + active_jetpack_state)
 		print(current_jetpack_anim)
 	# check what current arm state is
@@ -102,17 +102,17 @@ func _process(delta):
 			walljumping.visible = false
 			climbing.visible = false
 			jumpboosting.visible = true
-			current_arm_anim = dashing
+			current_arm_anim = $CompositeSprites/Arms/jumpboosting
 		elif active_arm_state == "climbing":
 			walljumping.visible = false
 			climbing.visible = true
 			jumpboosting.visible = false
-			current_arm_anim = doublejumping
+			current_arm_anim = $CompositeSprites/Arms/climbing
 		elif active_arm_state == "walljumping":
 			walljumping.visible = true
 			climbing.visible = false
 			jumpboosting.visible = false
-			current_arm_anim = umbrellaing
+			current_arm_anim = $CompositeSprites/Arms/walljumping
 		print(" ------ " + active_arm_state)
 		print(current_arm_anim)
 	
@@ -141,11 +141,18 @@ func _process(delta):
 		#print($FiniteStateMachine.current_state.name.to_lower())
 		if current_arm_anim != null:
 			current_arm_anim.play($FiniteStateMachine.current_state.name.to_lower())
+			print(" JOSJOID JFOISJDFI ")
+			print(current_arm_anim)
 		if current_jetpack_anim != null:
 			current_jetpack_anim.play($FiniteStateMachine.current_state.name.to_lower())
-		
+			print(" WOOOAHHHH WOAHHAH ")
+			print(current_jetpack_anim)
 		robot.play($FiniteStateMachine.current_state.name.to_lower())
 	else:
+		if current_arm_anim != null:
+			current_arm_anim.play("idle")
+		if current_jetpack_anim != null:
+			current_jetpack_anim.play("idle")
 		robot.play("idle")
 	
 	# if current velocity is to the right
