@@ -48,7 +48,7 @@ func _process(_delta):
 	if Input.is_action_just_pressed("edit") and in_edit_bounds:
 		editMenu()
 	
-	print($Player.position)
+	#print($Player.position)
 
 func editMenu():
 	if editing:
