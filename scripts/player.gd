@@ -13,17 +13,27 @@ var clinging_direction := 0.0
 var climb_coyote_time := 0.0
 var jump_buffer := 0.0
 
-@onready var composite_sprites = $CompositeSprites
+# ROBOT ANIMATIONS
 @onready var robot = $CompositeSprites/Robot
+# JETPACK ANIMATIONS
+@onready var dashing = $CompositeSprites/Jetpacks/dashing
+@onready var doublejumping = $CompositeSprites/Jetpacks/jumping
+@onready var umbrellaing = $CompositeSprites/Jetpacks/umbrellaing
+# ARM ANIMATIONS
+@onready var walljumping = $CompositeSprites/Arms/walljumping
+@onready var climbing = $CompositeSprites/Arms/climbing
+@onready var jumpboosting = $CompositeSprites/Arms/jumpboosting
 
 var target_velocity : float
 var acceleration_amount: float
 var deceleration_amount: float
 
 @export var active_jetpack_state : String
+var current_jetpack_anim : AnimatedSprite2D
 # can be "jumping" or "dashing" or (WIP) "umbrellaing"
 
 @export var active_arm_state : String
+var current_arm_anim : AnimatedSprite2D
 # doesn't quite have same functionality as active_jetpack_state, but is still
 # being used to keep track of arms
 #
@@ -67,11 +77,59 @@ func _process(delta):
 	if horizontal_movement_direction() != 0:
 		facing_direction = horizontal_movement_direction()
 	
+	# check what current jetpack state is
+	if active_jetpack_state != "" and active_jetpack_state != null:
+		if active_jetpack_state == "dashing":
+			umbrellaing.visible = false
+			doublejumping.visible = false
+			dashing.visible = true
+			current_jetpack_anim = dashing
+		elif active_jetpack_state == "jumping":
+			umbrellaing.visible = false
+			doublejumping.visible = true
+			dashing.visible = false
+			current_jetpack_anim = doublejumping
+		elif active_jetpack_state == "umbrellaing":
+			umbrellaing.visible = true
+			doublejumping.visible = false
+			dashing.visible = false
+			current_jetpack_anim = umbrellaing
+		print(" ------ " + active_jetpack_state)
+		print(current_jetpack_anim)
+	# check what current arm state is
+	if active_arm_state != "" and active_arm_state != null:
+		if active_arm_state == "jumpboosting":
+			walljumping.visible = false
+			climbing.visible = false
+			jumpboosting.visible = true
+			current_arm_anim = dashing
+		elif active_arm_state == "climbing":
+			walljumping.visible = false
+			climbing.visible = true
+			jumpboosting.visible = false
+			current_arm_anim = doublejumping
+		elif active_arm_state == "walljumping":
+			walljumping.visible = true
+			climbing.visible = false
+			jumpboosting.visible = false
+			current_arm_anim = umbrellaing
+		print(" ------ " + active_arm_state)
+		print(current_arm_anim)
+	
 	# Flip the sprite
 	if facing_direction > 0:
 		robot.flip_h = false
+		if current_arm_anim != null:
+			current_arm_anim.flip_h = false
+		if current_jetpack_anim != null:
+			current_jetpack_anim.flip_h = false
+		
 	elif facing_direction < 0:
 		robot.flip_h = true
+		if current_arm_anim != null:
+			current_arm_anim.flip_h = true
+		if current_jetpack_anim != null:
+			current_jetpack_anim.flip_h = true
 	
 	# play sprite animations
 	#if horizontal_movement_direction() == 0:
@@ -81,6 +139,11 @@ func _process(delta):
 	
 	if $FiniteStateMachine.current_state.name.to_lower() in robot.sprite_frames.get_animation_names():
 		#print($FiniteStateMachine.current_state.name.to_lower())
+		if current_arm_anim != null:
+			current_arm_anim.play($FiniteStateMachine.current_state.name.to_lower())
+		if current_jetpack_anim != null:
+			current_jetpack_anim.play($FiniteStateMachine.current_state.name.to_lower())
+		
 		robot.play($FiniteStateMachine.current_state.name.to_lower())
 	else:
 		robot.play("idle")
@@ -145,7 +208,7 @@ func _on_edit_menu_arm_selected(arm_type):
 	else:
 		# if no ability selected, set active_arm_state to empty string
 		active_arm_state = ""
-	print(active_arm_state)
+	print(" ------ " + active_arm_state)
 
 # setting active_jetpack_state when changed in edit menu
 func _on_edit_menu_jetpack_selected(jetpack_type):
@@ -154,4 +217,4 @@ func _on_edit_menu_jetpack_selected(jetpack_type):
 	else:
 		# if no ability selected, set active_jetpack_state to empty string
 		active_jetpack_state = ""
-	print(active_jetpack_state)
+	print(" ------ " + active_jetpack_state)
