@@ -1,9 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://dol4ikt2xc18v"]
+[gd_scene load_steps=31 format=3 uid="uid://dol4ikt2xc18v"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_vscu2"]
 [ext_resource type="Script" path="res://scripts/state-machine/FiniteStateMachine.gd" id="2_51co4"]
 [ext_resource type="Texture2D" uid="uid://bxo4s0j7t03x0" path="res://assets/sprites/player/robot-Idle.png" id="2_hyccr"]
 [ext_resource type="Script" path="res://scripts/hurtbox.gd" id="2_p74e7"]
+[ext_resource type="Texture2D" uid="uid://8qma70pwto34" path="res://assets/sprites/player/animations/robot-jumping.png" id="3_obexy"]
 [ext_resource type="Texture2D" uid="uid://b528mqj26t1nn" path="res://assets/sprites/player/robot-Running.png" id="3_s2yyi"]
 [ext_resource type="Script" path="res://scripts/state-machine/idle.gd" id="4_oixml"]
 [ext_resource type="Script" path="res://scripts/state-machine/running.gd" id="5_4wmna"]
@@ -16,12 +17,6 @@
 [ext_resource type="Script" path="res://scripts/state-machine/umbrellaing.gd" id="12_4wbyi"]
 [ext_resource type="Script" path="res://scripts/state-machine/death.gd" id="13_u5nog"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jh4is"]
-size = Vector2(28, 51)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bn55i"]
-size = Vector2(40, 72.8571)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_4148i"]
 atlas = ExtResource("2_hyccr")
 region = Rect2(0, 0, 16, 16)
@@ -29,6 +24,18 @@ region = Rect2(0, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_dhx1a"]
 atlas = ExtResource("2_hyccr")
 region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31twq"]
+atlas = ExtResource("3_obexy")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgk06"]
+atlas = ExtResource("3_obexy")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6svve"]
+atlas = ExtResource("3_obexy")
+region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qc4ao"]
 atlas = ExtResource("3_s2yyi")
@@ -69,6 +76,25 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_31twq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgk06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6svve")
+}],
+"loop": true,
+"name": &"jumping",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_qc4ao")
 }, {
 "duration": 1.0,
@@ -91,10 +117,40 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jh4is"]
+size = Vector2(22, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bn55i"]
+size = Vector2(42.8571, 65.7143)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_vscu2")
 active_jetpack_state = "umbrellaing"
 active_arm_state = "walljumping"
+
+[node name="CompositeSprites" type="Node2D" parent="."]
+
+[node name="Arms" type="Node2D" parent="CompositeSprites"]
+
+[node name="wall-jump" type="AnimatedSprite2D" parent="CompositeSprites/Arms"]
+
+[node name="climbing" type="AnimatedSprite2D" parent="CompositeSprites/Arms"]
+
+[node name="jump-boost" type="AnimatedSprite2D" parent="CompositeSprites/Arms"]
+
+[node name="Jetpacks" type="Node2D" parent="CompositeSprites"]
+
+[node name="dash" type="AnimatedSprite2D" parent="CompositeSprites/Jetpacks"]
+
+[node name="double-jump" type="AnimatedSprite2D" parent="CompositeSprites/Jetpacks"]
+
+[node name="umbrella" type="AnimatedSprite2D" parent="CompositeSprites/Jetpacks"]
+
+[node name="Robot" type="AnimatedSprite2D" parent="CompositeSprites"]
+scale = Vector2(4.25, 4.25)
+sprite_frames = SubResource("SpriteFrames_io8bg")
+animation = &"idle"
+autoplay = "idle"
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 0
@@ -102,19 +158,13 @@ collision_mask = 4
 script = ExtResource("2_p74e7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(0, 7.5)
+position = Vector2(0, 11)
 shape = SubResource("RectangleShape2D_jh4is")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 7.5)
+position = Vector2(0, 11)
 scale = Vector2(0.7, 0.7)
 shape = SubResource("RectangleShape2D_bn55i")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(4.25, 4.25)
-sprite_frames = SubResource("SpriteFrames_io8bg")
-animation = &"running"
-autoplay = "idle"
 
 [node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_51co4")
