@@ -31,7 +31,7 @@ var level_exits = {0:Vector2(1200,500),
 6:Vector2(1100,200),
 7:Vector2(100,-600)}
 
-var level = 1
+var level = 0
 
 #var game = preload("res://scenes/levels/level_one.tscn").instantiate()
 
