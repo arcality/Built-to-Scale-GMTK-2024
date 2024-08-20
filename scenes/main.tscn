@@ -28,7 +28,7 @@ position = Vector2(1141, 613)
 [node name="edit_menu" parent="." instance=ExtResource("6_ty4xn")]
 
 [node name="Exit" parent="." instance=ExtResource("7_6wq60")]
-position = Vector2(1134, 186)
+position = Vector2(103, -197)
 
 [connection signal="player_entered" from="edit_area" to="." method="_on_edit_area_player_entered"]
 [connection signal="player_exited" from="edit_area" to="." method="_on_edit_area_player_exited"]
