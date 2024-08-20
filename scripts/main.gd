@@ -6,23 +6,26 @@ extends Node
 var editing = false
 var in_edit_bounds = false
 
-var levels = {1:preload("res://scenes/levels/level_one.tscn").instantiate(),
+var levels = {0:preload("res://scenes/levels/title_screen_level.tscn").instantiate(),
+1:preload("res://scenes/levels/level_one.tscn").instantiate(),
 2:preload("res://scenes/levels/level_one_pt_two.tscn").instantiate(),
 3:preload("res://scenes/levels/level_two.tscn").instantiate(),
 4:preload("res://scenes/levels/level_three.tscn").instantiate(),
 5:preload("res://scenes/levels/level_four.tscn").instantiate()}
-var level_spawns = {1:Vector2(100,500),
+var level_spawns = {0:Vector2(100,500),
+1:Vector2(100,500),
 2:Vector2(150,200),
 3:Vector2(1200,600),
 4:Vector2(200,500),
 5:Vector2(200,600)}
-var level_exits = {1:Vector2(1200,200),
+var level_exits = {0:Vector2(1200,500),
+1:Vector2(1200,200),
 2:Vector2(1000,225),
 3:Vector2(50,90),
 4:Vector2(500, 90),
 5:Vector2(1100,200)}
 
-var level = 1
+var level = 0
 
 #var game = preload("res://scenes/levels/level_one.tscn").instantiate()
 
