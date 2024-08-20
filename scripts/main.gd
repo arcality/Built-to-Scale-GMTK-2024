@@ -19,13 +19,14 @@ var level_spawns = {0:Vector2(100,500),
 3:Vector2(1200,600),
 4:Vector2(200,500),
 5:Vector2(200,600),
-6:Vector2(1200,400)}
+6:Vector2(1100,300)}
 var level_exits = {0:Vector2(1200,500),
 1:Vector2(1200,200),
 2:Vector2(1000,225),
 3:Vector2(50,90),
-4:Vector2(500, 90),
-5:Vector2(1100,200)}
+4:Vector2(500,90),
+5:Vector2(1100,200),
+6:Vector2(100,-600)}
 
 var level = 0
 
