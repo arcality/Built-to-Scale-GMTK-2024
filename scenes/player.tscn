@@ -1,4 +1,4 @@
-[gd_scene load_steps=338 format=3 uid="uid://dol4ikt2xc18v"]
+[gd_scene load_steps=343 format=3 uid="uid://dol4ikt2xc18v"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_vscu2"]
 [ext_resource type="Texture2D" uid="uid://bb4re7nqdr1us" path="res://assets/sprites/player/animations/wall-jump-dashing.png" id="2_6ngew"]
@@ -71,6 +71,7 @@
 [ext_resource type="Texture2D" uid="uid://b28bf02d6hoqi" path="res://assets/sprites/player/animations/jump-boost-jump-boosting.png" id="23_xa5dl"]
 [ext_resource type="Texture2D" uid="uid://8oyk8lufes7" path="res://assets/sprites/player/animations/jump-boost-jumping.png" id="24_1jnn6"]
 [ext_resource type="Texture2D" uid="uid://dlioutdojd0jd" path="res://assets/sprites/player/animations/jump-boost-running.png" id="25_3nlrb"]
+[ext_resource type="Texture2D" uid="uid://cji85fjjr1hll" path="res://assets/sprites/player/animations/robot-death.png" id="28_ryhmw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7k1p6"]
 atlas = ExtResource("2_d8s2s")
@@ -954,6 +955,22 @@ region = Rect2(32, 0, 16, 16)
 atlas = ExtResource("3_hcecg")
 region = Rect2(48, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_rl4s2"]
+atlas = ExtResource("28_ryhmw")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0k21"]
+atlas = ExtResource("28_ryhmw")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7acid"]
+atlas = ExtResource("28_ryhmw")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5vdi"]
+atlas = ExtResource("28_ryhmw")
+region = Rect2(48, 0, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_62t5l"]
 atlas = ExtResource("4_4mxke")
 region = Rect2(0, 0, 16, 16)
@@ -1138,6 +1155,23 @@ animations = [{
 "loop": true,
 "name": &"dashing",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rl4s2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0k21")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7acid")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5vdi")
+}],
+"loop": true,
+"name": &"death",
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -2220,8 +2254,10 @@ animation = &"climbing"
 [node name="Robot" type="AnimatedSprite2D" parent="CompositeSprites"]
 scale = Vector2(4.25, 4.25)
 sprite_frames = SubResource("SpriteFrames_io8bg")
-animation = &"climbing"
+animation = &"death"
 autoplay = "idle"
+frame = 3
+frame_progress = 0.731807
 
 [node name="Arms" type="Node2D" parent="CompositeSprites"]
 
