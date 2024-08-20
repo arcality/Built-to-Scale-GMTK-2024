@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://diy4qktavjoih"
+path="res://.godot/imported/i definitely made this specifically for this game and not for another game about a climbing robot that i wrote music for.ogg-b7e88e8136d0f0b15d7d008b4c6cc1b8.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/i definitely made this specifically for this game and not for another game about a climbing robot that i wrote music for.ogg"
+dest_files=["res://.godot/imported/i definitely made this specifically for this game and not for another game about a climbing robot that i wrote music for.ogg-b7e88e8136d0f0b15d7d008b4c6cc1b8.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
