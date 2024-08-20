@@ -10,25 +10,28 @@ var levels = {0:preload("res://scenes/levels/title_screen_level.tscn").instantia
 1:preload("res://scenes/levels/level_one.tscn").instantiate(),
 2:preload("res://scenes/levels/level_one_pt_two.tscn").instantiate(),
 3:preload("res://scenes/levels/level_two.tscn").instantiate(),
-4:preload("res://scenes/levels/level_three.tscn").instantiate(),
-5:preload("res://scenes/levels/level_four.tscn").instantiate(),
-6:preload("res://scenes/levels/end_screen_level.tscn").instantiate()}
+4:preload("res://scenes/levels/level_two_pt_two.tscn").instantiate(),
+5:preload("res://scenes/levels/level_three.tscn").instantiate(),
+6:preload("res://scenes/levels/level_four.tscn").instantiate(),
+7:preload("res://scenes/levels/end_screen_level.tscn").instantiate()}
 var level_spawns = {0:Vector2(100,500),
 1:Vector2(100,500),
 2:Vector2(150,200),
 3:Vector2(1200,600),
-4:Vector2(200,500),
-5:Vector2(200,600),
-6:Vector2(1100,300)}
+4:Vector2(1100,100),
+5:Vector2(200,500),
+6:Vector2(200,600),
+7:Vector2(1100,300)}
 var level_exits = {0:Vector2(1200,500),
 1:Vector2(1200,200),
 2:Vector2(1000,225),
 3:Vector2(50,90),
-4:Vector2(500,90),
-5:Vector2(1100,200),
-6:Vector2(100,-600)}
+4:Vector2(100,500),
+5:Vector2(500,90),
+6:Vector2(1100,200),
+7:Vector2(100,-600)}
 
-var level = 0
+var level = 1
 
 #var game = preload("res://scenes/levels/level_one.tscn").instantiate()
 
