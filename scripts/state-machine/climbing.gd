@@ -1,7 +1,7 @@
 extends State
 
 var player : Player
-var speed = 30000
+var speed = 20000
 
 func Enter():
 	player = owner
