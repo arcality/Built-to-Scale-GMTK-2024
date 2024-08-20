@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_8n6hf"]
 [ext_resource type="PackedScene" uid="uid://dujgkqlppnd1d" path="res://scenes/temp_terrain.tscn" id="1_k1u6s"]
 [ext_resource type="PackedScene" uid="uid://1rumcv8m0vud" path="res://scenes/snow_fall.tscn" id="2_awtdv"]
-[ext_resource type="PackedScene" uid="uid://cctium1kl6vc2" path="res://scenes/death_zone.tscn" id="2_qfu47"]
+[ext_resource type="PackedScene" path="res://scenes/death_zone.tscn" id="2_qfu47"]
 [ext_resource type="Texture2D" uid="uid://bjfdy1kghhdj3" path="res://assets/sprites/fixed sprites/mountain_backgorund.png" id="2_sn1e6"]
 [ext_resource type="PackedScene" uid="uid://dol4ikt2xc18v" path="res://scenes/player.tscn" id="2_tyjf3"]
 [ext_resource type="PackedScene" uid="uid://ce5q1qa0j4hhh" path="res://scenes/edit_area.tscn" id="4_lfd5i"]
@@ -15,8 +15,10 @@
 script = ExtResource("1_8n6hf")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(640, 360)
-scale = Vector2(4.25, 4.25)
+modulate = Color(0.695503, 0.695503, 0.695503, 1)
+self_modulate = Color(1, 1, 1, 0.713726)
+position = Vector2(663, 363)
+scale = Vector2(4.5125, 4.5125)
 texture = ExtResource("2_sn1e6")
 
 [node name="SnowFall" parent="." instance=ExtResource("2_awtdv")]
