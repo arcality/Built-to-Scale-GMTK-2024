@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://ce5q1qa0j4hhh"]
+[gd_scene load_steps=4 format=3 uid="uid://ce5q1qa0j4hhh"]
 
 [ext_resource type="Script" path="res://scripts/edit_area.gd" id="1_1v7a8"]
+[ext_resource type="Texture2D" uid="uid://d33l6gjdxc2jl" path="res://assets/sprites/fixed sprites/edit_menu_marker.png" id="2_nriuw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vphfq"]
 size = Vector2(269.5, 133)
@@ -9,9 +10,15 @@ size = Vector2(269.5, 133)
 script = ExtResource("1_1v7a8")
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -33)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_vphfq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -102)
+scale = Vector2(4.25, 4.25)
+texture = ExtResource("2_nriuw")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
