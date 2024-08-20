@@ -2332,6 +2332,9 @@ script = ExtResource("12_4wbyi")
 [node name="Death" type="Node" parent="FiniteStateMachine"]
 script = ExtResource("13_u5nog")
 
+[node name="Timer" type="Timer" parent="FiniteStateMachine/Death"]
+wait_time = 0.3
+
 [node name="RayCastRight" type="RayCast2D" parent="."]
 position = Vector2(16, 8)
 target_position = Vector2(26, 0)
@@ -2344,3 +2347,4 @@ hit_from_inside = true
 
 [connection signal="body_entered" from="Hurtbox" to="Hurtbox" method="_on_body_entered"]
 [connection signal="timeout" from="FiniteStateMachine/Dashing/Timer" to="FiniteStateMachine/Dashing" method="_on_timer_timeout"]
+[connection signal="timeout" from="FiniteStateMachine/Death/Timer" to="FiniteStateMachine/Death" method="_on_timer_timeout"]
