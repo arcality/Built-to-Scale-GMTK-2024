@@ -15,13 +15,13 @@ var levels = {0:preload("res://scenes/levels/title_screen_level.tscn").instantia
 6:preload("res://scenes/levels/level_four.tscn").instantiate(),
 7:preload("res://scenes/levels/end_screen_level.tscn").instantiate()}
 var level_spawns = {0:Vector2(100,578),
-1:Vector2(100,500),
-2:Vector2(150,200),
-3:Vector2(1200,600),
-4:Vector2(1100,100),
-5:Vector2(200,500),
-6:Vector2(200,600),
-7:Vector2(1100,300)}
+1:Vector2(100,578),
+2:Vector2(110,238),
+3:Vector2(1190,646),
+4:Vector2(1100,170),
+5:Vector2(130,578),
+6:Vector2(200,646),
+7:Vector2(1000,374)}
 var level_exits = {0:Vector2(1200,580),
 1:Vector2(1200,240),
 2:Vector2(1000,275),
@@ -31,7 +31,7 @@ var level_exits = {0:Vector2(1200,580),
 6:Vector2(1100,240),
 7:Vector2(100,-600)}
 
-var level = 0
+var level = 7
 
 #var game = preload("res://scenes/levels/level_one.tscn").instantiate()
 
@@ -47,7 +47,8 @@ func _process(_delta):
 		# if edit key is pressed while in this area, enter editing menu
 	if Input.is_action_just_pressed("edit") and in_edit_bounds:
 		editMenu()
-		
+	
+	print($Player.position)
 
 func editMenu():
 	if editing:
