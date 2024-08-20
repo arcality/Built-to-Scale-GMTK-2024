@@ -22,7 +22,7 @@ var level_spawns = {0:Vector2(100,500),
 5:Vector2(200,500),
 6:Vector2(200,600),
 7:Vector2(1100,300)}
-var level_exits = {0:Vector2(1200,500),
+var level_exits = {0:Vector2(1200,580),
 1:Vector2(1200,200),
 2:Vector2(1000,225),
 3:Vector2(50,90),
@@ -68,7 +68,7 @@ func change_to_level(new_level:int):
 		if i.name.to_lower().contains("level"):
 			remove_child(i)
 	add_child(levels[new_level])
-	move_child(levels[new_level], 1)
+	move_child(levels[new_level], 2)
 	$Player.position = level_spawns[new_level]
 	$Player.spawn_position = level_spawns[new_level]
 	$edit_area.position = level_spawns[new_level]

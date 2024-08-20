@@ -1,16 +1,17 @@
 [gd_scene load_steps=3 format=3 uid="uid://cg0mkxdhte8o1"]
 
-[ext_resource type="Texture2D" uid="uid://csjndqq7tdjkm" path="res://assets/sprites/icon.svg" id="1_nei5r"]
+[ext_resource type="Texture2D" uid="uid://bwopkl1dn2sh5" path="res://assets/sprites/fixed sprites/green_flag.png" id="1_qk3ah"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xqoq4"]
-size = Vector2(64, 82)
+size = Vector2(64, 59)
 
 [node name="LevelExit" type="Area2D"]
 collision_layer = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.640625, 0.640625)
-texture = ExtResource("1_nei5r")
+scale = Vector2(4.25, 4.25)
+texture = ExtResource("1_qk3ah")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -11.5)
 shape = SubResource("RectangleShape2D_xqoq4")
