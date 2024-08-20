@@ -70,7 +70,7 @@ func change_to_level(new_level:int):
 		if i.name.to_lower().contains("level"):
 			remove_child(i)
 	add_child(levels[new_level])
-	move_child(levels[new_level], 3)
+	move_child(levels[new_level], 4)
 	$Player.position = level_spawns[new_level]
 	$Player.spawn_position = level_spawns[new_level]
 	$edit_area.position = level_spawns[new_level]
